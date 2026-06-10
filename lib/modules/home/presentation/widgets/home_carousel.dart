@@ -11,14 +11,14 @@ class HomeCarousel extends StatefulWidget {
 
 class _HomeCarouselState extends State<HomeCarousel> {
   final List<(String, String)> desktopElements = [
-    ('assets/images/carousel_image1_desktop.png', ''),
-    ('assets/images/carousel_image2_desktop.png', ''),
-    ('assets/images/carousel_image3_desktop.png', ''),
+    ('assets/images/carousel_image1_desktop.png', '/discography'),
+    ('assets/images/carousel_image2_desktop.png', '/media'),
+    ('assets/images/carousel_image3_desktop.png', '/workshop'),
   ];
   final List<(String, String)> mobileElements = [
-    ('assets/images/carousel_image1_mobile.png', ''),
-    ('assets/images/carousel_image2_mobile.png', ''),
-    ('assets/images/carousel_image3_mobile.png', ''),
+    ('assets/images/carousel_image1_mobile.png', '/discography'),
+    ('assets/images/carousel_image2_mobile.png', '/media'),
+    ('assets/images/carousel_image3_mobile.png', '/workshop'),
   ];
   final CarouselSliderController _carouselController =
       CarouselSliderController();
@@ -44,17 +44,22 @@ class _HomeCarouselState extends State<HomeCarousel> {
                       .map(
                         (e) => Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 30),
-                          child: GestureDetector(
-                            onTap: () {},
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(16),
-                              child: SizedBox(
-                                width: double.infinity,
-                                child: Image(
-                                  image: AssetImage(e.$1),
-                                  fit: BoxFit.cover,
-                                  color: Color(0x996D0070),
-                                  colorBlendMode: BlendMode.colorDodge,
+                          child: MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pushNamed(context, e.$2);
+                              },
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(16),
+                                child: SizedBox(
+                                  width: double.infinity,
+                                  child: Image(
+                                    image: AssetImage(e.$1),
+                                    fit: BoxFit.cover,
+                                    color: Color(0x996D0070),
+                                    colorBlendMode: BlendMode.colorDodge,
+                                  ),
                                 ),
                               ),
                             ),

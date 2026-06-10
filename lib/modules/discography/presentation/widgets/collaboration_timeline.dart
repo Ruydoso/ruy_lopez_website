@@ -164,8 +164,6 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
             left: mobile ? 20 : width * 0.1,
             child: Container(width: mobile ? 5.5 : 7, color: Color(0xFFF213F8)),
           ),
-          if(!mobile)
-          
           Padding(
             padding: EdgeInsets.only(
               left: mobile ? 10 : width * 0.1 - 16,

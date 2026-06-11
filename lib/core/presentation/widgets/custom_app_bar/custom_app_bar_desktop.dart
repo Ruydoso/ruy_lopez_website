@@ -8,17 +8,24 @@ class CustomAppBarDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return SizedBox(
       height: 95,
       width: double.infinity,
       child: DecoratedBox(
         decoration: BoxDecoration(color: Colors.white),
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 40),
+          padding: EdgeInsets.symmetric(
+            horizontal: width < tabletBreakPoint ? 10 : 40,
+          ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SvgPicture.asset('assets/logos/ruy_logo.svg'),
+              SvgPicture.asset(
+                'assets/logos/ruy_logo.svg',
+                width: width < tabletBreakPoint ? 220 : 400,
+              ),
+              SizedBox(width: width < tabletBreakPoint ? 20 : 0),
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

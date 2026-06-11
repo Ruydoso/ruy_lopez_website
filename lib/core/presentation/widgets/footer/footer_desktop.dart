@@ -5,6 +5,7 @@ class FooterDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
     return SizedBox(
       width: double.infinity,
       height: 420,
@@ -35,7 +36,7 @@ class FooterDesktop extends StatelessWidget {
                   children: [
                     RobotoCondensedText(
                       text: 'FOLLOW',
-                      fontSize: 96,
+                      fontSize: screenWidth < tabletBreakPoint ? 70 : 96,
                       fontWeight: FontWeight.w600,
                     ),
                     Row(
@@ -71,7 +72,7 @@ class FooterDesktop extends StatelessWidget {
                     children: [
                       RobotoCondensedText(
                         text: 'CONTACT',
-                        fontSize: 96,
+                        fontSize: screenWidth < tabletBreakPoint ? 70 : 96,
                         fontWeight: FontWeight.w600,
                       ),
                       DecoratedBox(
@@ -99,13 +100,12 @@ class FooterDesktop extends StatelessWidget {
                                   size: 60,
                                 ),
                                 const SizedBox(width: 30),
-                                SizedBox(
-                                  width: 380,
-                                  child: RobotoText(
-                                    text: 'ruydosonussa@gmail.com',
-                                    fontSize: 32,
-                                    fontWeight: FontWeight.w400,
-                                  ),
+                                RobotoText(
+                                  text: 'ruydosonussa@gmail.com',
+                                  fontSize: screenWidth < tabletBreakPoint
+                                      ? 20
+                                      : 32,
+                                  fontWeight: FontWeight.w400,
                                 ),
                               ],
                             ),

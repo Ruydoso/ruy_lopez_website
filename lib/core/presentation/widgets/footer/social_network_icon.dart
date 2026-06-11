@@ -23,8 +23,11 @@ class _SocialNetworkIconState extends State<SocialNetworkIcon> {
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width < mobileBreakPoint
-        ? 54.0
+    final screenWidth = MediaQuery.of(context).size.width;
+    final width = screenWidth < tabletBreakPoint
+        ? screenWidth < mobileBreakPoint
+              ? 54.0
+              : 60.0
         : 80.0;
     return MouseRegion(
       onEnter: (event) {

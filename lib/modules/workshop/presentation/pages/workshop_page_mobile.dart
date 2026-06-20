@@ -31,27 +31,28 @@ class _WorkshopPageMobileState extends State<WorkshopPageMobile> {
             Stack(
               children: [
                 SizedBox(width: double.infinity),
-                Positioned.fill(
+                SizedBox(
+                  width: double.infinity,
                   child: Image(
                     image: AssetImage(
-                      'assets/images/workshop_image1_mobile.png',
+                      'assets/images/workshop_image1_mobile.webp',
                     ),
                     fit: BoxFit.cover,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, bottom: 80),
+                  padding: const EdgeInsets.only(left: 20, bottom: 60),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 50),
+                        padding: const EdgeInsets.symmetric(vertical: 40),
                         child: StaatlichesText(text: 'WORKSHOPS', fontSize: 57),
                       ),
                       SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.65,
+                        width: MediaQuery.of(context).size.width * 0.75,
                         child: RobotoText(
-                          fontSize: 17,
+                          fontSize: 16,
                           fontWeight: FontWeight.w400,
                           height: 1.42,
                           letterSpacing: 0.25,
@@ -134,7 +135,7 @@ class _WorkshopPageMobileState extends State<WorkshopPageMobile> {
                           width: double.infinity,
                           child: Image(
                             image: AssetImage(
-                              'assets/effects/grainy_effect3.png',
+                              'assets/effects/grainy_effect3.webp',
                             ),
                             fit: BoxFit.cover,
                           ),
@@ -156,7 +157,7 @@ class _WorkshopPageMobileState extends State<WorkshopPageMobile> {
                               width: MediaQuery.of(context).size.width * 0.75,
                               child: Image(
                                 image: AssetImage(
-                                  'assets/images/workshop_image1.png',
+                                  'assets/images/workshop_image1.webp',
                                 ),
                                 fit: BoxFit.cover,
                               ),
@@ -181,7 +182,7 @@ class _WorkshopPageMobileState extends State<WorkshopPageMobile> {
                               width: MediaQuery.of(context).size.width * 0.9,
                               child: Image(
                                 image: AssetImage(
-                                  'assets/images/workshop_image2.png',
+                                  'assets/images/workshop_image2.webp',
                                 ),
                                 fit: BoxFit.cover,
                               ),
@@ -264,7 +265,7 @@ class _WorkshopPageMobileState extends State<WorkshopPageMobile> {
                             width: MediaQuery.of(context).size.width * 0.8,
                             child: Image(
                               image: AssetImage(
-                                'assets/images/workshop_temp.png',
+                                'assets/images/workshop_temp.webp',
                               ),
                               fit: BoxFit.cover,
                             ),

@@ -15,7 +15,7 @@ class FooterMobile extends StatelessWidget {
             width: double.infinity,
             child: Image(
               image: AssetImage(
-                'assets/effects/footer_grainy_effect_mobile.png',
+                'assets/effects/footer_grainy_effect_mobile.webp',
               ),
               fit: BoxFit.cover,
             ),

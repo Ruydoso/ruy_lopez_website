@@ -21,7 +21,7 @@ class BioPageMobile extends StatelessWidget {
                   child: SizedBox(
                     width: double.infinity,
                     child: Image(
-                      image: AssetImage('assets/images/bio_image3_mobile.png'),
+                      image: AssetImage('assets/images/bio_image3_mobile.webp'),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -49,7 +49,7 @@ class BioPageMobile extends StatelessWidget {
                         Positioned.fill(
                           child: Image(
                             image: AssetImage(
-                              'assets/images/bio_image1_mobile.png',
+                              'assets/images/bio_image1_mobile.webp',
                             ),
                             fit: BoxFit.cover,
                             color: Colors.black.withValues(alpha: 0.5),
@@ -301,7 +301,7 @@ class BioPageMobile extends StatelessWidget {
                   height: 17,
                   child: Image(
                     image: AssetImage(
-                      'assets/effects/grainy_purple_line_effect.png',
+                      'assets/effects/grainy_purple_line_effect.webp',
                     ),
                     fit: BoxFit.cover,
                   ),

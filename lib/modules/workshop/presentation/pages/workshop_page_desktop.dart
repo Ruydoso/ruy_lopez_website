@@ -9,6 +9,7 @@ class WorkshopPageDesktop extends StatefulWidget {
 
 class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
   final GlobalKey _key = GlobalKey();
+  bool linkHover = false;
 
   void _scroolToTarget() {
     if (_key.currentContext != null) {
@@ -34,7 +35,7 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                   height: 750,
                   child: Image(
                     image: AssetImage(
-                      'assets/images/workshop_image1_desktop.png',
+                      'assets/images/workshop_image1_desktop.webp',
                     ),
                     fit: BoxFit.cover,
                   ),
@@ -130,7 +131,7 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                           opacity: 0.4,
                           child: Image(
                             image: AssetImage(
-                              'assets/effects/grainy_effect1.png',
+                              'assets/effects/grainy_effect1.webp',
                             ),
                             fit: BoxFit.cover,
                             colorBlendMode: BlendMode.multiply,
@@ -145,7 +146,7 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                           opacity: 0.4,
                           child: Image(
                             image: AssetImage(
-                              'assets/effects/grainy_effect2.png',
+                              'assets/effects/grainy_effect2.webp',
                             ),
                             fit: BoxFit.cover,
                             colorBlendMode: BlendMode.multiply,
@@ -180,7 +181,7 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                                       children: [
                                         Image(
                                           image: AssetImage(
-                                            'assets/images/workshop_image1.png',
+                                            'assets/images/workshop_image1.webp',
                                           ),
                                           fit: BoxFit.cover,
                                         ),
@@ -204,7 +205,7 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                                       children: [
                                         Image(
                                           image: AssetImage(
-                                            'assets/images/workshop_image2.png',
+                                            'assets/images/workshop_image2.webp',
                                           ),
                                           fit: BoxFit.cover,
                                         ),
@@ -221,6 +222,12 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                                           alignment:
                                               AlignmentGeometry.centerRight,
                                           child: MouseRegion(
+                                            onEnter: (event) => setState(
+                                              () => linkHover = true,
+                                            ),
+                                            onExit: (event) => setState(
+                                              () => linkHover = false,
+                                            ),
                                             cursor: SystemMouseCursors.click,
                                             child: GestureDetector(
                                               onTap: () {},
@@ -228,7 +235,9 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                                                 decoration: BoxDecoration(
                                                   border: Border(
                                                     bottom: BorderSide(
-                                                      color: Color(0xFFF0B3E7),
+                                                      color: linkHover
+                                                          ? Color(0xFFF0B3E7)
+                                                          : Colors.transparent,
                                                       width: 2,
                                                     ),
                                                   ),
@@ -271,7 +280,7 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                             opacity: 0.75,
                             child: Image(
                               image: AssetImage(
-                                'assets/effects/purple_grainy_effect_l.png',
+                                'assets/effects/purple_grainy_effect_l.webp',
                               ),
                               fit: BoxFit.cover,
                               colorBlendMode: BlendMode.multiply,
@@ -286,7 +295,7 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                             opacity: 0.75,
                             child: Image(
                               image: AssetImage(
-                                'assets/effects/purple_grainy_effect_r.png',
+                                'assets/effects/purple_grainy_effect_r.webp',
                               ),
                               fit: BoxFit.cover,
                               colorBlendMode: BlendMode.multiply,
@@ -300,7 +309,7 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                           height: 17,
                           child: Image(
                             image: AssetImage(
-                              'assets/effects/grainy_purple_line_effect.png',
+                              'assets/effects/grainy_purple_line_effect.webp',
                             ),
                             fit: BoxFit.cover,
                           ),
@@ -323,7 +332,7 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                                 width: MediaQuery.of(context).size.width * 0.5,
                                 child: Image(
                                   image: AssetImage(
-                                    'assets/images/workshop_temp.png',
+                                    'assets/images/workshop_temp.webp',
                                   ),
                                   fit: BoxFit.cover,
                                 ),

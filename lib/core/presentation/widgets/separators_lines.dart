@@ -1,15 +1,20 @@
 import 'package:flutter/material.dart';
 
 class SeparatorsLines extends StatelessWidget {
-  const SeparatorsLines({super.key});
+  final bool inverted;
+  const SeparatorsLines({super.key, this.inverted = false});
 
   @override
   Widget build(BuildContext context) {
     final gradient = LinearGradient(
       colors: [Color(0xFFC6C6C5), Color(0xFF696967), Color(0xFF1D1D1B)],
       stops: [0.0, 0.5, 1.0],
-      begin: AlignmentGeometry.centerLeft,
-      end: AlignmentGeometry.centerRight,
+      begin: inverted
+          ? AlignmentGeometry.centerRight
+          : AlignmentGeometry.centerLeft,
+      end: inverted
+          ? AlignmentGeometry.centerLeft
+          : AlignmentGeometry.centerRight,
     );
     return SizedBox(
       width: double.infinity,

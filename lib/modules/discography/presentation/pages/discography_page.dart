@@ -11,20 +11,20 @@ part 'discography_page_mobile.dart';
 
 final records = [
   Records(
-    imagePath: 'assets/images/records/record1.jpg',
-    hoverImagePath: 'assets/images/records/record1_hover.png',
+    imagePath: 'assets/images/records/record1.webp',
+    hoverImagePath: 'assets/images/records/record1_hover.webp',
     link:
         'https://music.apple.com/us/album/de-ruydoso-a-san-francisco-single/1889920301?l=en-GB',
   ),
   Records(
-    imagePath: 'assets/images/records/record2.png',
-    hoverImagePath: 'assets/images/records/record2_hover.png',
+    imagePath: 'assets/images/records/record2.webp',
+    hoverImagePath: 'assets/images/records/record2_hover.webp',
     link:
         'https://music.apple.com/us/album/los-3-mosqueteros/1624812546?l=en-GB',
   ),
   Records(
-    imagePath: 'assets/images/records/record3.png',
-    hoverImagePath: 'assets/images/records/record3_hover.png',
+    imagePath: 'assets/images/records/record3.webp',
+    hoverImagePath: 'assets/images/records/record3_hover.webp',
     link:
         'https://music.apple.com/us/album/dos-lenguajes-en-vivo/1547698982?l=en-GB',
   ),

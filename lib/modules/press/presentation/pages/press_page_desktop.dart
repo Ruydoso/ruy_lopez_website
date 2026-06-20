@@ -39,7 +39,7 @@ class _PressPageDesktopState extends State<PressPageDesktop> {
                     child: Opacity(
                       opacity: 0.2,
                       child: Image(
-                        image: AssetImage('assets/effects/grainy_effect1.png'),
+                        image: AssetImage('assets/effects/grainy_effect1.webp'),
                         fit: BoxFit.cover,
                         colorBlendMode: BlendMode.multiply,
                       ),
@@ -51,7 +51,7 @@ class _PressPageDesktopState extends State<PressPageDesktop> {
                     child: Opacity(
                       opacity: 0.2,
                       child: Image(
-                        image: AssetImage('assets/effects/grainy_effect2.png'),
+                        image: AssetImage('assets/effects/grainy_effect2.webp'),
                         fit: BoxFit.cover,
                         colorBlendMode: BlendMode.multiply,
                       ),
@@ -65,7 +65,7 @@ class _PressPageDesktopState extends State<PressPageDesktop> {
                       opacity: 0.8,
                       child: Image(
                         image: AssetImage(
-                          'assets/effects/purple_grainy_effect_l.png',
+                          'assets/effects/purple_grainy_effect_l.webp',
                         ),
                         fit: BoxFit.cover,
                         colorBlendMode: BlendMode.multiply,
@@ -80,7 +80,7 @@ class _PressPageDesktopState extends State<PressPageDesktop> {
                       opacity: 0.8,
                       child: Image(
                         image: AssetImage(
-                          'assets/effects/purple_grainy_effect_r.png',
+                          'assets/effects/purple_grainy_effect_r.webp',
                         ),
                         fit: BoxFit.cover,
                         colorBlendMode: BlendMode.multiply,
@@ -94,7 +94,7 @@ class _PressPageDesktopState extends State<PressPageDesktop> {
                     height: 17,
                     child: Image(
                       image: AssetImage(
-                        'assets/effects/grainy_purple_line_effect.png',
+                        'assets/effects/grainy_purple_line_effect.webp',
                       ),
                       fit: BoxFit.cover,
                     ),

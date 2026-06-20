@@ -16,7 +16,7 @@ class MediaPageMobile extends StatelessWidget {
                 SizedBox(width: double.infinity),
                 Positioned.fill(
                   child: Image(
-                    image: AssetImage('assets/images/media_image1_mobile.png'),
+                    image: AssetImage('assets/images/media_image1_mobile.webp'),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -77,7 +77,7 @@ class MediaPageMobile extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: AudiovisualPoster(
-                            assetPath: 'assets/images/audiovisual_1.jpg',
+                            assetPath: 'assets/images/audiovisual_1.webp',
                             url:
                                 'https://youtu.be/Wt2gaVmu0eQ?si=WgOGE3p3BxfZ5zmf',
                           ),
@@ -85,7 +85,7 @@ class MediaPageMobile extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: AudiovisualPoster(
-                            assetPath: 'assets/images/audiovisual_2.png',
+                            assetPath: 'assets/images/audiovisual_2.webp',
                             url:
                                 'https://youtu.be/FU3WPtBBXkA?si=SzYKzx9RdUDkFBsc',
                           ),
@@ -93,21 +93,21 @@ class MediaPageMobile extends StatelessWidget {
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: AudiovisualPoster(
-                            assetPath: 'assets/images/audiovisual_3.jpg',
+                            assetPath: 'assets/images/audiovisual_3.webp',
                             url: 'https://www.youtube.com/watch?v=SgyuzLmPJu0',
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: AudiovisualPoster(
-                            assetPath: 'assets/images/audiovisual_4.jpg',
+                            assetPath: 'assets/images/audiovisual_4.webp',
                             url: 'https://youtu.be/5KKK2Mbejgc',
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.symmetric(vertical: 20),
                           child: AudiovisualPoster(
-                            assetPath: 'assets/images/audiovisual_5.png',
+                            assetPath: 'assets/images/audiovisual_5.webp',
                             url: 'https://www.youtube.com/watch?v=FCUSLVebt7I',
                           ),
                         ),
@@ -121,7 +121,7 @@ class MediaPageMobile extends StatelessWidget {
                       height: 17,
                       child: Image(
                         image: AssetImage(
-                          'assets/effects/grainy_purple_line_effect.png',
+                          'assets/effects/grainy_purple_line_effect.webp',
                         ),
                         fit: BoxFit.cover,
                       ),

@@ -20,7 +20,7 @@ class HomePageDesktop extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: Image(
-                image: AssetImage('assets/images/home_image1_desktop.png'),
+                image: AssetImage('assets/images/home_image1_desktop.webp'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -51,7 +51,7 @@ class HomePageDesktop extends StatelessWidget {
                           opacity: 0.4,
                           child: Image(
                             image: AssetImage(
-                              'assets/effects/grainy_effect1.png',
+                              'assets/effects/grainy_effect1.webp',
                             ),
                             fit: BoxFit.cover,
                           ),
@@ -65,7 +65,7 @@ class HomePageDesktop extends StatelessWidget {
                           opacity: 0.4,
                           child: Image(
                             image: AssetImage(
-                              'assets/effects/grainy_effect2.png',
+                              'assets/effects/grainy_effect2.webp',
                             ),
                             fit: BoxFit.cover,
                           ),

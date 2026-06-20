@@ -79,10 +79,23 @@ class _AudiovisualPosterState extends State<AudiovisualPoster> {
                     child: Center(
                       child: Padding(
                         padding: const EdgeInsets.only(bottom: 12),
-                        child: RobotoText(
-                          text: 'See the trailer on Youtube',
-                          fontSize: 14,
-                          color: Color(0xFF261625),
+                        child: Container(
+                          padding: const EdgeInsets.only(bottom: 2),
+                          decoration: BoxDecoration(
+                            border: Border(
+                              bottom: BorderSide(
+                                width: 1.5,
+                                color: isHovering
+                                    ? Color(0xFF653662)
+                                    : Colors.transparent,
+                              ),
+                            ),
+                          ),
+                          child: RobotoText(
+                            text: 'See the trailer on Youtube',
+                            fontSize: 14,
+                            color: Color(0xFF653662),
+                          ),
                         ),
                       ),
                     ),
@@ -112,7 +125,7 @@ class _AudiovisualPosterState extends State<AudiovisualPoster> {
                           ? 'assets/icons/icon_play_pressed.svg'
                           : 'assets/icons/icon_play.svg',
                       colorFilter: ColorFilter.mode(
-                        Colors.black,
+                        Color(0xFF653662),
                         BlendMode.srcIn,
                       ),
                       height: 24,

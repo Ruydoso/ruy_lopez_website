@@ -105,7 +105,11 @@ class _AppBarNavigationElement extends StatelessWidget {
           ),
           child: Padding(
             padding: const EdgeInsets.all(15.0),
-            child: Text(text),
+            child: RobotoText(
+              text: text,
+              color: Color(0xFF4E444B),
+              fontSize: 16,
+            ),
           ),
         ),
       ),

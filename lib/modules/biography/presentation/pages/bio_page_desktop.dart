@@ -19,7 +19,7 @@ class BioPageDesktop extends StatelessWidget {
                     Positioned.fill(
                       child: Image(
                         image: AssetImage(
-                          'assets/images/bio_image1_desktop.png',
+                          'assets/images/bio_image1_desktop.webp',
                         ),
                         fit: BoxFit.cover,
                         color: Colors.black.withValues(alpha: 0.5),
@@ -129,7 +129,7 @@ class BioPageDesktop extends StatelessWidget {
                               width: MediaQuery.of(context).size.width * 0.35,
                               child: Image(
                                 image: AssetImage(
-                                  'assets/images/bio_image2_desktop.png',
+                                  'assets/images/bio_image2_desktop.webp',
                                 ),
                                 fit: BoxFit.cover,
                               ),
@@ -149,7 +149,7 @@ class BioPageDesktop extends StatelessWidget {
                       height: 700,
                       child: Image(
                         image: AssetImage(
-                          'assets/effects/purple_grainy_effect_l.png',
+                          'assets/effects/purple_grainy_effect_l.webp',
                         ),
                         fit: BoxFit.cover,
                         colorBlendMode: BlendMode.multiply,
@@ -160,7 +160,7 @@ class BioPageDesktop extends StatelessWidget {
                       height: 700,
                       child: Image(
                         image: AssetImage(
-                          'assets/effects/purple_grainy_effect_r.png',
+                          'assets/effects/purple_grainy_effect_r.webp',
                         ),
                         fit: BoxFit.cover,
                         colorBlendMode: BlendMode.multiply,
@@ -176,7 +176,7 @@ class BioPageDesktop extends StatelessWidget {
                           width: double.infinity,
                           child: Image(
                             image: AssetImage(
-                              'assets/images/bio_image3_desktop.png',
+                              'assets/images/bio_image3_desktop.webp',
                             ),
                             fit: BoxFit.cover,
                           ),
@@ -190,7 +190,7 @@ class BioPageDesktop extends StatelessWidget {
                       height: 17,
                       child: Image(
                         image: AssetImage(
-                          'assets/effects/grainy_purple_line_effect.png',
+                          'assets/effects/grainy_purple_line_effect.webp',
                         ),
                         fit: BoxFit.cover,
                       ),

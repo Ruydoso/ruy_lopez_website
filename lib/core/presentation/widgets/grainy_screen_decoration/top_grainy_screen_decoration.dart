@@ -17,7 +17,7 @@ class TopGrainyBackgroundScreen extends StatelessWidget {
           child: Opacity(
             opacity: 0.5,
             child: Image(
-              image: AssetImage('assets/effects/top_grainy_effect.png'),
+              image: AssetImage('assets/effects/top_grainy_effect.webp'),
               fit: BoxFit.cover,
               colorBlendMode: BlendMode.overlay,
             ),

@@ -1,8 +1,14 @@
 part of 'footer.dart';
 
-class FooterDesktop extends StatelessWidget {
+class FooterDesktop extends StatefulWidget {
   const FooterDesktop({super.key});
 
+  @override
+  State<FooterDesktop> createState() => _FooterDesktopState();
+}
+
+class _FooterDesktopState extends State<FooterDesktop> {
+  bool mailHover = false;
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -16,7 +22,7 @@ class FooterDesktop extends StatelessWidget {
             height: 420,
             child: Image(
               image: AssetImage(
-                'assets/effects/footer_grainy_effect_desktop.png',
+                'assets/effects/footer_grainy_effect_desktop.webp',
               ),
               fit: BoxFit.cover,
             ),
@@ -75,39 +81,52 @@ class FooterDesktop extends StatelessWidget {
                         fontSize: screenWidth < tabletBreakPoint ? 70 : 96,
                         fontWeight: FontWeight.w600,
                       ),
-                      DecoratedBox(
-                        decoration: BoxDecoration(color: Color(0xB0B5A7B0)),
-                        child: GestureDetector(
-                          onTap: () {
-                            launchUrl(
-                              Uri(
-                                scheme: 'mailto',
-                                path: 'ruydosonussa@gmail.com',
+                      MouseRegion(
+                        cursor: SystemMouseCursors.click,
+                        onEnter: (event) => setState(() => mailHover = true),
+                        onExit: (event) => setState(() => mailHover = false),
+                        child: DecoratedBox(
+                          decoration: BoxDecoration(
+                            color: Color(0x1EFFFFFF),
+                            borderRadius: BorderRadius.circular(18),
+                          ),
+                          child: GestureDetector(
+                            onTap: () {
+                              launchUrl(
+                                Uri(
+                                  scheme: 'mailto',
+                                  path: 'ruydosonussa@gmail.com',
+                                ),
+                              );
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.only(
+                                left: 28,
+                                top: 28,
+                                bottom: 28,
                               ),
-                            );
-                          },
-                          child: Padding(
-                            padding: const EdgeInsets.only(
-                              left: 28,
-                              top: 28,
-                              bottom: 28,
-                            ),
-                            child: Row(
-                              children: [
-                                Icon(
-                                  Icons.mail_outline_rounded,
-                                  color: Colors.white,
-                                  size: 60,
-                                ),
-                                const SizedBox(width: 30),
-                                RobotoText(
-                                  text: 'ruydosonussa@gmail.com',
-                                  fontSize: screenWidth < tabletBreakPoint
-                                      ? 20
-                                      : 32,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                              ],
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    Icons.mail_outline_rounded,
+                                    color: mailHover
+                                        ? Color(0xFFF0B3E7)
+                                        : Colors.white,
+                                    size: 60,
+                                  ),
+                                  const SizedBox(width: 30),
+                                  RobotoText(
+                                    color: mailHover
+                                        ? Color(0xFFF0B3E7)
+                                        : Colors.white,
+                                    text: 'ruydosonussa@gmail.com',
+                                    fontSize: screenWidth < tabletBreakPoint
+                                        ? 20
+                                        : 32,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),

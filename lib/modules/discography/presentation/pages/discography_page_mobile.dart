@@ -33,7 +33,7 @@ class DiscographyPageMobile extends StatelessWidget {
                         width: double.infinity,
                         child: Image(
                           image: AssetImage(
-                            'assets/effects/grainy_effect3.png',
+                            'assets/effects/grainy_effect3.webp',
                           ),
                         ),
                       ),

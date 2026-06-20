@@ -21,7 +21,7 @@ class PurpleGrainyScreenDecoration extends StatelessWidget {
           child: Opacity(
             opacity: 0.4,
             child: Image(
-              image: AssetImage('assets/effects/purple_grainy_effect_l.png'),
+              image: AssetImage('assets/effects/purple_grainy_effect_l.webp'),
               fit: BoxFit.cover,
               colorBlendMode: BlendMode.multiply,
             ),
@@ -34,7 +34,7 @@ class PurpleGrainyScreenDecoration extends StatelessWidget {
           child: Opacity(
             opacity: 0.4,
             child: Image(
-              image: AssetImage('assets/effects/purple_grainy_effect_r.png'),
+              image: AssetImage('assets/effects/purple_grainy_effect_r.webp'),
               fit: BoxFit.cover,
               colorBlendMode: BlendMode.multiply,
             ),
@@ -46,7 +46,7 @@ class PurpleGrainyScreenDecoration extends StatelessWidget {
           left: 0,
           height: 17,
           child: Image(
-            image: AssetImage('assets/effects/grainy_purple_line_effect.png'),
+            image: AssetImage('assets/effects/grainy_purple_line_effect.webp'),
             fit: BoxFit.cover,
           ),
         ),

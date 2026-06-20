@@ -175,7 +175,7 @@ class _PressPageMobileState extends State<PressPageMobile> {
                     height: 17,
                     child: Image(
                       image: AssetImage(
-                        'assets/effects/grainy_purple_line_effect.png',
+                        'assets/effects/grainy_purple_line_effect.webp',
                       ),
                       fit: BoxFit.cover,
                     ),

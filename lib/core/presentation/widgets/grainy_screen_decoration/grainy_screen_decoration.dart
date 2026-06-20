@@ -17,7 +17,7 @@ class GrainyBackgroundScreen extends StatelessWidget {
           child: Opacity(
             opacity: 0.4,
             child: Image(
-              image: AssetImage('assets/effects/grainy_effect1.png'),
+              image: AssetImage('assets/effects/grainy_effect1.webp'),
               fit: BoxFit.cover,
               colorBlendMode: BlendMode.multiply,
             ),
@@ -30,7 +30,7 @@ class GrainyBackgroundScreen extends StatelessWidget {
           child: Opacity(
             opacity: 0.4,
             child: Image(
-              image: AssetImage('assets/effects/grainy_effect2.png'),
+              image: AssetImage('assets/effects/grainy_effect2.webp'),
               fit: BoxFit.cover,
               colorBlendMode: BlendMode.multiply,
             ),

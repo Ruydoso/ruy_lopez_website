@@ -15,7 +15,9 @@ class MediaPageDesktop extends StatelessWidget {
                 const SizedBox(width: double.infinity),
                 Positioned.fill(
                   child: Image(
-                    image: AssetImage('assets/images/media_image1_desktop.png'),
+                    image: AssetImage(
+                      'assets/images/media_image1_desktop.webp',
+                    ),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -83,13 +85,13 @@ class MediaPageDesktop extends StatelessWidget {
                                     children: [
                                       AudiovisualPoster(
                                         assetPath:
-                                            'assets/images/audiovisual_1.jpg',
+                                            'assets/images/audiovisual_1.webp',
                                         url:
                                             'https://youtu.be/Wt2gaVmu0eQ?si=WgOGE3p3BxfZ5zmf',
                                       ),
                                       AudiovisualPoster(
                                         assetPath:
-                                            'assets/images/audiovisual_2.png',
+                                            'assets/images/audiovisual_2.webp',
                                         url:
                                             'https://youtu.be/FU3WPtBBXkA?si=SzYKzx9RdUDkFBsc',
                                       ),
@@ -110,13 +112,13 @@ class MediaPageDesktop extends StatelessWidget {
                                     children: [
                                       AudiovisualPoster(
                                         assetPath:
-                                            'assets/images/audiovisual_3.jpg',
+                                            'assets/images/audiovisual_3.webp',
                                         url:
                                             'https://www.youtube.com/watch?v=SgyuzLmPJu0',
                                       ),
                                       AudiovisualPoster(
                                         assetPath:
-                                            'assets/images/audiovisual_4.jpg',
+                                            'assets/images/audiovisual_4.webp',
                                         url: 'https://youtu.be/5KKK2Mbejgc',
                                       ),
                                     ],
@@ -136,7 +138,7 @@ class MediaPageDesktop extends StatelessWidget {
                                     children: [
                                       AudiovisualPoster(
                                         assetPath:
-                                            'assets/images/audiovisual_5.png',
+                                            'assets/images/audiovisual_5.webp',
                                         url:
                                             'https://www.youtube.com/watch?v=FCUSLVebt7I',
                                       ),
@@ -161,19 +163,19 @@ class MediaPageDesktop extends StatelessWidget {
                                     children: [
                                       AudiovisualPoster(
                                         assetPath:
-                                            'assets/images/audiovisual_1.jpg',
+                                            'assets/images/audiovisual_1.webp',
                                         url:
                                             'https://youtu.be/Wt2gaVmu0eQ?si=WgOGE3p3BxfZ5zmf',
                                       ),
                                       AudiovisualPoster(
                                         assetPath:
-                                            'assets/images/audiovisual_2.png',
+                                            'assets/images/audiovisual_2.webp',
                                         url:
                                             'https://youtu.be/FU3WPtBBXkA?si=SzYKzx9RdUDkFBsc',
                                       ),
                                       AudiovisualPoster(
                                         assetPath:
-                                            'assets/images/audiovisual_3.jpg',
+                                            'assets/images/audiovisual_3.webp',
                                         url:
                                             'https://www.youtube.com/watch?v=SgyuzLmPJu0',
                                       ),
@@ -194,12 +196,12 @@ class MediaPageDesktop extends StatelessWidget {
                                     children: [
                                       AudiovisualPoster(
                                         assetPath:
-                                            'assets/images/audiovisual_4.jpg',
+                                            'assets/images/audiovisual_4.webp',
                                         url: 'https://youtu.be/5KKK2Mbejgc',
                                       ),
                                       AudiovisualPoster(
                                         assetPath:
-                                            'assets/images/audiovisual_5.png',
+                                            'assets/images/audiovisual_5.webp',
                                         url:
                                             'https://www.youtube.com/watch?v=FCUSLVebt7I',
                                       ),

@@ -20,6 +20,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: Color(0xFFC7C4C4),
       endDrawer: CustomDrawer(selectedRoute: HomePage.route),
@@ -45,26 +46,31 @@ class _HomePageMobileState extends State<HomePageMobile> {
                   child: SizedBox(
                     width: double.infinity,
                     child: Image(
-                      image: AssetImage('assets/images/home_image1_mobile.png'),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-                Positioned(
-                  bottom: 0,
-                  right: 0,
-                  left: 0,
-                  child: AnimatedOpacity(
-                    opacity: firstSectionVisible ? 1.0 : 0.0,
-                    duration: Durations.medium4,
-                    child: Image(
                       image: AssetImage(
-                        'assets/images/home_image1top_mobile.png',
+                        width < 500
+                            ? 'assets/images/home_image1_mobile.webp'
+                            : 'assets/images/home_image1_desktop.webp',
                       ),
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
+                if (width < 500)
+                  Positioned(
+                    bottom: 0,
+                    right: 0,
+                    left: 0,
+                    child: AnimatedOpacity(
+                      opacity: firstSectionVisible ? 1.0 : 0.0,
+                      duration: Durations.medium4,
+                      child: Image(
+                        image: AssetImage(
+                          'assets/images/home_image1top_mobile.webp',
+                        ),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                  ),
               ],
             ),
             DecoratedBox(
@@ -204,7 +210,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                     width: double.infinity,
                     child: Image(
                       image: AssetImage(
-                        'assets/effects/grainy_purple_line_effect.png',
+                        'assets/effects/grainy_purple_line_effect.webp',
                       ),
                       fit: BoxFit.cover,
                     ),

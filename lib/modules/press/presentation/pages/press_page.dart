@@ -13,7 +13,7 @@ final List<News> _news = [
     title: 'Harold López-Nussa - Nueva Timba',
     corpus:
         'Como abrebocas de lo que será este nuevo album Nueva Timba, el aclamado pianista cubano Harold López Nussa nos presenta Bonito... ',
-    assetPath: 'assets/images/news/news1.png',
+    assetPath: 'assets/images/news/news1.webp',
     date: '11 july 2025',
     media: 'CUBADEBATE',
     link: 'https://www.solarlatinclub.com/harold-lopez-nussa-nueva-timba/',
@@ -22,7 +22,7 @@ final List<News> _news = [
     title: 'Virtuosismo y esencias de La Habana.',
     corpus:
         'La música latina fue un descubrimiento para el bop, que sonaba muy oscuro a veces, con su complejidad armónica y la profundidad del blues que imprimió Charlie Parke',
-    assetPath: 'assets/images/news/news2.png',
+    assetPath: 'assets/images/news/news2.webp',
     date: '2 november 2025',
     media: 'Granada Hoy',
     link:
@@ -32,7 +32,7 @@ final List<News> _news = [
     title: 'Harold López Nussa in Nueva Timba with Ruy Adrian López-Nussa.',
     corpus:
         'Blending the flavors of jazz with the Afro-Cuban influences of his upbringing, pianist Harold López-Nussa along with Luques Curtis, Ruy Adrian López-Nussa and Grégoire Maret are bringing their eclectic',
-    assetPath: 'assets/images/news/news3.png',
+    assetPath: 'assets/images/news/news3.webp',
     date: '5 october 2025',
     media: 'ENVISIONWISE',
     link:
@@ -42,7 +42,7 @@ final List<News> _news = [
     title: 'Harold López-Nussa “Nueva Timba”',
     corpus:
         'Sometimes maintaining tradition while breathing new life into old modes is challenging. Pianist/composer López Nussa seems delight',
-    assetPath: 'assets/images/news/news4.png',
+    assetPath: 'assets/images/news/news4.webp',
     date: 'november 25',
     media: 'DOWNBEAT',
     link:
@@ -52,7 +52,7 @@ final List<News> _news = [
     title: 'Timba a la americana rewiew / the future of Latin Jazz',
     corpus:
         'Jazz is renowed for his constant renowned, so it´s odd that Afro-Cuban jazz has barely changed since Gizzy Gillespie, Machito and others ',
-    assetPath: 'assets/images/news/news5.png',
+    assetPath: 'assets/images/news/news5.webp',
     date: '6 september 2023',
     media: 'THE TIMES',
     link:

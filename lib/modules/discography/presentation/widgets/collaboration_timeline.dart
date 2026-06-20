@@ -87,7 +87,7 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
         year: 2008,
       ),
       Collaboration(
-        imagePath: 'assets/images/collaborations/collab13.png',
+        imagePath: 'assets/images/collaborations/collab13.webp',
         link: 'https://music.apple.com/us/album/canciones/639917072',
         year: 2007,
       ),
@@ -112,7 +112,7 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
         children: [
           Positioned.fill(
             child: Image(
-              image: AssetImage('assets/effects/disc_grainy_effect_2.png'),
+              image: AssetImage('assets/effects/disc_grainy_effect_2.webp'),
               fit: BoxFit.cover,
             ),
           ),
@@ -125,7 +125,7 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
                 opacity: 0.5,
                 child: Image(
                   image: AssetImage(
-                    'assets/effects/purple_grainy_effect_l.png',
+                    'assets/effects/purple_grainy_effect_l.webp',
                   ),
                   fit: BoxFit.cover,
                   colorBlendMode: BlendMode.multiply,
@@ -141,7 +141,7 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
                 opacity: 0.5,
                 child: Image(
                   image: AssetImage(
-                    'assets/effects/purple_grainy_effect_r.png',
+                    'assets/effects/purple_grainy_effect_r.webp',
                   ),
                   fit: BoxFit.cover,
                   colorBlendMode: BlendMode.multiply,
@@ -154,27 +154,112 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
             left: 0,
             height: 17,
             child: Image(
-              image: AssetImage('assets/effects/grainy_purple_line_effect.png'),
+              image: AssetImage(
+                'assets/effects/grainy_purple_line_effect.webp',
+              ),
               fit: BoxFit.cover,
             ),
           ),
           Positioned(
             top: 0,
             bottom: 0,
-            left: mobile ? 20 : width * 0.1,
+            left: mobile ? 20 : width * 0.15,
             child: Container(width: mobile ? 5.5 : 7, color: Color(0xFFF213F8)),
+          ),
+          Positioned(
+            top: 0,
+            bottom: 0,
+            left: (mobile ? 20 : width * 0.15) - 9,
+            child: Container(
+              width: 4,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xFFA3A3A2),
+                    Color(0xFF696967),
+                    Color(0xFF1D1D1B),
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: [0.0, 0.43, 1.0],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 0,
+            bottom: 0,
+            left: (mobile ? 20 : width * 0.15) - 18,
+            child: Container(
+              width: 3,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xFFA3A3A2),
+                    Color(0xFF696967),
+                    Color(0xFF1D1D1B),
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: [0.0, 0.43, 1.0],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 0,
+            bottom: 0,
+            left: (mobile ? 20 : width * 0.15) - 27,
+            child: Container(
+              width: 2,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xFFA3A3A2),
+                    Color(0xFF696967),
+                    Color(0xFF1D1D1B),
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: [0.0, 0.43, 1.0],
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 0,
+            bottom: 0,
+            left: (mobile ? 20 : width * 0.15) - 36,
+            child: Container(
+              width: 1,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [
+                    Color(0xFFA3A3A2),
+                    Color(0xFF696967),
+                    Color(0xFF1D1D1B),
+                  ],
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  stops: [0.0, 0.43, 1.0],
+                ),
+              ),
+            ),
           ),
           Padding(
             padding: EdgeInsets.only(
-              left: mobile ? 10 : width * 0.1 - 16,
+              left: mobile ? 10 : width * 0.15 - 16,
               top: 80,
             ),
             child: Column(
               children: [
-                RobotoText(
-                  text: 'COLLABORATIONS',
-                  fontSize: mobile ? 32 : 45,
-                  color: Color(0xFF330833),
+                Padding(
+                  padding: const EdgeInsets.only(right: 158.0),
+                  child: RobotoText(
+                    text: 'COLLABORATIONS',
+                    fontSize: mobile ? 32 : 45,
+                    color: Color(0xFF330833),
+                  ),
                 ),
                 const SizedBox(height: 20),
                 _buildTimeLineSection(2025, mobile),
@@ -207,14 +292,18 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
                 DecoratedBox(
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    color: Color(0xFF6D0070),
+                    color: _expanded[year]!
+                        ? Color(0xFF6D0070)
+                        : Color(0xFFF213F8),
                   ),
                   child: AnimatedRotation(
                     turns: _expanded[year]! ? 0 : -0.5,
                     duration: const Duration(milliseconds: 300),
                     child: Icon(
                       Icons.expand_more,
-                      color: Color(0xFFF0B3E7),
+                      color: _expanded[year]!
+                          ? Color(0xFFF0B3E7)
+                          : Colors.black,
                       size: mobile ? 25 : 40,
                     ),
                   ),
@@ -248,7 +337,7 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
                           scrollDirection: Axis.horizontal,
                           child: Row(
                             children: [
-                              if (!mobile) const SizedBox(width: 50),
+                              if (!mobile) const SizedBox(width: 150),
                               ...albums!.map(
                                 (a) => Padding(
                                   padding: const EdgeInsets.only(right: 20),

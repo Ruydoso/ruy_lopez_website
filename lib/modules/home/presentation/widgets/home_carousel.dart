@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:ruy_lopez_website/core/utils/breakpoints.dart';
 
 class HomeCarousel extends StatefulWidget {
@@ -11,17 +10,16 @@ class HomeCarousel extends StatefulWidget {
 
 class _HomeCarouselState extends State<HomeCarousel> {
   final List<(String, String)> desktopElements = [
-    ('assets/images/carousel_image1_desktop.png', '/discography'),
-    ('assets/images/carousel_image2_desktop.png', '/media'),
-    ('assets/images/carousel_image3_desktop.png', '/workshop'),
+    ('assets/images/carousel_image1_desktop.webp', '/discography'),
+    ('assets/images/carousel_image2_desktop.webp', '/media'),
+    ('assets/images/carousel_image3_desktop.webp', '/workshop'),
   ];
   final List<(String, String)> mobileElements = [
-    ('assets/images/carousel_image1_mobile.png', '/discography'),
-    ('assets/images/carousel_image2_mobile.png', '/media'),
-    ('assets/images/carousel_image3_mobile.png', '/workshop'),
+    ('assets/images/carousel_image1_mobile.webp', '/discography'),
+    ('assets/images/carousel_image2_mobile.webp', '/media'),
+    ('assets/images/carousel_image3_mobile.webp', '/workshop'),
   ];
-  final CarouselSliderController _carouselController =
-      CarouselSliderController();
+
   int _currentIndex = 0;
 
   @override
@@ -32,50 +30,47 @@ class _HomeCarouselState extends State<HomeCarousel> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    final items = (width < mobileBreakPoint ? mobileElements : desktopElements)
+        .map(
+          (e) => Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 30),
+            child: MouseRegion(
+              cursor: SystemMouseCursors.click,
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, e.$2);
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16),
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(maxWidth: 1200),
+                    child: SizedBox(
+                      width: double.infinity,
+                      child: Image(
+                        image: AssetImage(e.$1),
+                        fit: BoxFit.cover,
+                        color: Color(0x996D0070),
+                        colorBlendMode: BlendMode.colorDodge,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        )
+        .toList();
+
     return Stack(
       alignment: AlignmentGeometry.center,
       children: [
         Column(
           children: [
-            CarouselSlider(
-              carouselController: _carouselController,
-              items:
-                  (width < mobileBreakPoint ? mobileElements : desktopElements)
-                      .map(
-                        (e) => Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 30),
-                          child: MouseRegion(
-                            cursor: SystemMouseCursors.click,
-                            child: GestureDetector(
-                              onTap: () {
-                                Navigator.pushNamed(context, e.$2);
-                              },
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(16),
-                                child: SizedBox(
-                                  width: double.infinity,
-                                  child: Image(
-                                    image: AssetImage(e.$1),
-                                    fit: BoxFit.cover,
-                                    color: Color(0x996D0070),
-                                    colorBlendMode: BlendMode.colorDodge,
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      )
-                      .toList(),
-              options: CarouselOptions(
-                viewportFraction: 1.0,
-                height: width < mobileBreakPoint ? 330 : 504,
-                onPageChanged: (index, reason) {
-                  setState(() {
-                    _currentIndex = index;
-                  });
-                },
-              ),
+            AnimatedSwitcher(
+              duration: Durations.extralong4,
+              transitionBuilder: (child, animation) =>
+                  FadeTransition(opacity: animation, child: child),
+              child: items[_currentIndex],
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 25, top: 20),
@@ -109,10 +104,9 @@ class _HomeCarouselState extends State<HomeCarousel> {
                 backgroundColor: WidgetStatePropertyAll(Color(0xFFDABFD3)),
               ),
               onPressed: () {
-                _carouselController.nextPage(
-                  duration: Durations.medium1,
-                  curve: Curves.easeInOut,
-                );
+                setState(() {
+                  _currentIndex = (_currentIndex + 1) % 3;
+                });
               },
               icon: Icon(Icons.arrow_right_outlined, size: 60),
             ),
@@ -128,10 +122,9 @@ class _HomeCarouselState extends State<HomeCarousel> {
                 backgroundColor: WidgetStatePropertyAll(Color(0xFFDABFD3)),
               ),
               onPressed: () {
-                _carouselController.previousPage(
-                  duration: Durations.medium1,
-                  curve: Curves.easeInOut,
-                );
+                setState(() {
+                  _currentIndex = (_currentIndex - 1).abs() % 3;
+                });
               },
               icon: Icon(Icons.arrow_left_outlined, size: 60),
             ),

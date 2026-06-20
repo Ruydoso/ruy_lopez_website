@@ -18,7 +18,7 @@ class DiscographyPageDesktop extends StatelessWidget {
                     opacity: 0.8,
                     child: Image(
                       image: AssetImage(
-                        'assets/images/disc_image1_desktop.png',
+                        'assets/images/disc_image1_desktop.webp',
                       ),
                       fit: BoxFit.cover,
                     ),
@@ -29,7 +29,7 @@ class DiscographyPageDesktop extends StatelessWidget {
                   bottom: 0,
                   top: 0,
                   child: Image(
-                    image: AssetImage('assets/effects/grainy_effect_2l.png'),
+                    image: AssetImage('assets/effects/grainy_effect_2l.webp'),
                     fit: BoxFit.cover,
                     colorBlendMode: BlendMode.multiply,
                   ),
@@ -39,12 +39,12 @@ class DiscographyPageDesktop extends StatelessWidget {
                   bottom: 0,
                   top: 0,
                   child: Image(
-                    image: AssetImage('assets/effects/grainy_effect_2r.png'),
+                    image: AssetImage('assets/effects/grainy_effect_2r.webp'),
                     fit: BoxFit.cover,
                     colorBlendMode: BlendMode.multiply,
                   ),
                 ),
-                SeparatorsLines(),
+                SeparatorsLines(inverted: true),
 
                 Padding(
                   padding: EdgeInsets.only(

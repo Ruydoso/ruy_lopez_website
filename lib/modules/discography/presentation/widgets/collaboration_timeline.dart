@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ruy_lopez_website/core/presentation/presentation.dart';
 import 'package:ruy_lopez_website/core/utils/utils.dart';
 import 'package:ruy_lopez_website/modules/discography/presentation/widgets/collaboration_widget.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../domain/collaboration.dart';
 
@@ -13,7 +14,9 @@ class CollaborationTimeline extends StatefulWidget {
 }
 
 class _CollaborationTimelineState extends State<CollaborationTimeline> {
-  final Map<int, bool> _expanded = {2015: true, 2020: true, 2025: true};
+  bool isCollaborationSectionVisible = false;
+
+  final Map<int, bool> _expanded = {2015: false, 2020: false, 2025: false};
 
   final Map<int, List<Collaboration>> collaborations = {
     2025: [
@@ -94,185 +97,244 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
     ],
   };
 
+  void _triggerTimeLineAnimation() async {
+    setState(() {
+      isCollaborationSectionVisible = true;
+    });
+    Future.delayed(
+      Duration(milliseconds: 350),
+      () => setState(() {
+        _expanded[2025] = true;
+      }),
+    );
+    Future.delayed(
+      Duration(milliseconds: 1000),
+      () => setState(() {
+        _expanded[2020] = true;
+      }),
+    );
+    Future.delayed(
+      Duration(milliseconds: 1400),
+      () => setState(() {
+        _expanded[2015] = true;
+      }),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final mobile = width < mobileBreakPoint;
 
-    return DecoratedBox(
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Color(0xFF71716F), Color(0xFF696967), Color(0xFF1D1D1B)],
-          stops: [0.0, 0.1, 1.0],
-          begin: AlignmentGeometry.topCenter,
-          end: AlignmentGeometry.bottomCenter,
-        ),
-      ),
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: Image(
-              image: AssetImage('assets/effects/disc_grainy_effect_2.webp'),
-              fit: BoxFit.cover,
-            ),
+    return VisibilityDetector(
+      key: Key('timeLineKey'),
+      onVisibilityChanged: (VisibilityInfo info) {
+        if (info.visibleFraction > 0.6) {
+          _triggerTimeLineAnimation();
+        }
+      },
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFF71716F), Color(0xFF696967), Color(0xFF1D1D1B)],
+            stops: [0.0, 0.1, 1.0],
+            begin: AlignmentGeometry.topCenter,
+            end: AlignmentGeometry.bottomCenter,
           ),
-          if (!mobile)
-            Positioned(
-              left: 0,
-              bottom: 0,
-              height: 506,
-              child: Opacity(
-                opacity: 0.5,
-                child: Image(
-                  image: AssetImage(
-                    'assets/effects/purple_grainy_effect_l.webp',
-                  ),
-                  fit: BoxFit.cover,
-                  colorBlendMode: BlendMode.multiply,
-                ),
+        ),
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: Image(
+                image: AssetImage('assets/effects/disc_grainy_effect_2.webp'),
+                fit: BoxFit.cover,
               ),
             ),
-          if (!mobile)
+            if (!mobile)
+              Positioned(
+                left: 0,
+                bottom: 0,
+                height: 506,
+                child: Opacity(
+                  opacity: 0.5,
+                  child: Image(
+                    image: AssetImage(
+                      'assets/effects/purple_grainy_effect_l.webp',
+                    ),
+                    fit: BoxFit.cover,
+                    colorBlendMode: BlendMode.multiply,
+                  ),
+                ),
+              ),
+            if (!mobile)
+              Positioned(
+                height: 506,
+                bottom: 0,
+                right: 0,
+                child: Opacity(
+                  opacity: 0.5,
+                  child: Image(
+                    image: AssetImage(
+                      'assets/effects/purple_grainy_effect_r.webp',
+                    ),
+                    fit: BoxFit.cover,
+                    colorBlendMode: BlendMode.multiply,
+                  ),
+                ),
+              ),
             Positioned(
-              height: 506,
               bottom: 0,
               right: 0,
-              child: Opacity(
-                opacity: 0.5,
-                child: Image(
-                  image: AssetImage(
-                    'assets/effects/purple_grainy_effect_r.webp',
-                  ),
-                  fit: BoxFit.cover,
-                  colorBlendMode: BlendMode.multiply,
+              left: 0,
+              height: 17,
+              child: Image(
+                image: AssetImage(
+                  'assets/effects/grainy_purple_line_effect.webp',
                 ),
+                fit: BoxFit.cover,
               ),
             ),
-          Positioned(
-            bottom: 0,
-            right: 0,
-            left: 0,
-            height: 17,
-            child: Image(
-              image: AssetImage(
-                'assets/effects/grainy_purple_line_effect.webp',
-              ),
-              fit: BoxFit.cover,
+            Positioned(
+              top: 0,
+              bottom: 0,
+              left: mobile ? 20 : width * 0.15,
+              child: Container(width: mobile ? 5.5 : 7, color: Colors.white),
             ),
-          ),
-          Positioned(
-            top: 0,
-            bottom: 0,
-            left: mobile ? 20 : width * 0.15,
-            child: Container(width: mobile ? 5.5 : 7, color: Color(0xFFF213F8)),
-          ),
-          Positioned(
-            top: 0,
-            bottom: 0,
-            left: (mobile ? 20 : width * 0.15) - 9,
-            child: Container(
-              width: 4,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFFA3A3A2),
-                    Color(0xFF696967),
-                    Color(0xFF1D1D1B),
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  stops: [0.0, 0.43, 1.0],
+            Positioned(
+              top: 0,
+              bottom: 0,
+              left: mobile ? 20 : width * 0.15,
+              child: TweenAnimationBuilder<double>(
+                curve: Curves.easeOut,
+                tween: Tween<double>(
+                  begin: 0.0,
+                  end: isCollaborationSectionVisible ? 1.0 : 0.0,
                 ),
+                duration: const Duration(seconds: 3),
+                builder: (context, value, child) {
+                  return Container(
+                    width: mobile ? 5.5 : 7,
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: const [Color(0xFFF213F8), Colors.white],
+                        stops: [value, value],
+                      ),
+                    ),
+                  );
+                },
               ),
             ),
-          ),
-          Positioned(
-            top: 0,
-            bottom: 0,
-            left: (mobile ? 20 : width * 0.15) - 18,
-            child: Container(
-              width: 3,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFFA3A3A2),
-                    Color(0xFF696967),
-                    Color(0xFF1D1D1B),
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  stops: [0.0, 0.43, 1.0],
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            top: 0,
-            bottom: 0,
-            left: (mobile ? 20 : width * 0.15) - 27,
-            child: Container(
-              width: 2,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFFA3A3A2),
-                    Color(0xFF696967),
-                    Color(0xFF1D1D1B),
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  stops: [0.0, 0.43, 1.0],
-                ),
-              ),
-            ),
-          ),
-          Positioned(
-            top: 0,
-            bottom: 0,
-            left: (mobile ? 20 : width * 0.15) - 36,
-            child: Container(
-              width: 1,
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFFA3A3A2),
-                    Color(0xFF696967),
-                    Color(0xFF1D1D1B),
-                  ],
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  stops: [0.0, 0.43, 1.0],
-                ),
-              ),
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-              left: mobile ? 10 : width * 0.15 - 16,
-              top: 80,
-            ),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(right: 158.0),
-                  child: RobotoText(
-                    text: 'COLLABORATIONS',
-                    fontSize: mobile ? 32 : 45,
-                    color: Color(0xFF330833),
+
+            Positioned(
+              top: 0,
+              bottom: 0,
+              left: (mobile ? 20 : width * 0.15) - 9,
+              child: Container(
+                width: 4,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(0xFFA3A3A2),
+                      Color(0xFF696967),
+                      Color(0xFF1D1D1B),
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    stops: [0.0, 0.43, 1.0],
                   ),
                 ),
-                const SizedBox(height: 20),
-                _buildTimeLineSection(2025, mobile),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 60),
-                  child: _buildTimeLineSection(2020, mobile),
-                ),
-                _buildTimeLineSection(2015, mobile),
-                const SizedBox(height: 100),
-              ],
+              ),
             ),
-          ),
-        ],
+            Positioned(
+              top: 0,
+              bottom: 0,
+              left: (mobile ? 20 : width * 0.15) - 18,
+              child: Container(
+                width: 3,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(0xFFA3A3A2),
+                      Color(0xFF696967),
+                      Color(0xFF1D1D1B),
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    stops: [0.0, 0.43, 1.0],
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 0,
+              bottom: 0,
+              left: (mobile ? 20 : width * 0.15) - 27,
+              child: Container(
+                width: 2,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(0xFFA3A3A2),
+                      Color(0xFF696967),
+                      Color(0xFF1D1D1B),
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    stops: [0.0, 0.43, 1.0],
+                  ),
+                ),
+              ),
+            ),
+            Positioned(
+              top: 0,
+              bottom: 0,
+              left: (mobile ? 20 : width * 0.15) - 36,
+              child: Container(
+                width: 1,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    colors: [
+                      Color(0xFFA3A3A2),
+                      Color(0xFF696967),
+                      Color(0xFF1D1D1B),
+                    ],
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    stops: [0.0, 0.43, 1.0],
+                  ),
+                ),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                left: mobile ? 10 : width * 0.15 - 16,
+                top: 80,
+              ),
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 158.0),
+                    child: RobotoText(
+                      text: 'COLLABORATIONS',
+                      fontSize: mobile ? 32 : 45,
+                      color: Color(0xFF330833),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  _buildTimeLineSection(2025, mobile),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 60),
+                    child: _buildTimeLineSection(2020, mobile),
+                  ),
+                  _buildTimeLineSection(2015, mobile),
+                  const SizedBox(height: 100),
+                ],
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -285,30 +347,33 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
       children: [
         Padding(
           padding: const EdgeInsets.only(top: 3),
-          child: GestureDetector(
-            onTap: () => setState(() => _expanded[year] = !_expanded[year]!),
-            child: Row(
-              children: [
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: _expanded[year]!
-                        ? Color(0xFF6D0070)
-                        : Color(0xFFF213F8),
-                  ),
-                  child: AnimatedRotation(
-                    turns: _expanded[year]! ? 0 : -0.5,
-                    duration: const Duration(milliseconds: 300),
-                    child: Icon(
-                      Icons.expand_more,
+          child: MouseRegion(
+            cursor: SystemMouseCursors.click,
+            child: GestureDetector(
+              onTap: () => setState(() => _expanded[year] = !_expanded[year]!),
+              child: Row(
+                children: [
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
                       color: _expanded[year]!
-                          ? Color(0xFFF0B3E7)
-                          : Colors.black,
-                      size: mobile ? 25 : 40,
+                          ? Color(0xFF6D0070)
+                          : Color(0xFFF213F8),
+                    ),
+                    child: AnimatedRotation(
+                      turns: _expanded[year]! ? 0 : -0.5,
+                      duration: const Duration(milliseconds: 300),
+                      child: Icon(
+                        Icons.expand_more,
+                        color: _expanded[year]!
+                            ? Color(0xFFF0B3E7)
+                            : Colors.black,
+                        size: mobile ? 25 : 40,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

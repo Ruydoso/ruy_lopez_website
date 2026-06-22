@@ -7,68 +7,79 @@ class DiscographyPageMobile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       endDrawer: CustomDrawer(selectedRoute: DiscographyPage.route),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            CustomAppBar(),
-            DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFFBAB9B8),
-                    Color(0xFF696967),
-                    Color(0xFF3F3F3D),
-                    Color(0xFF1D1D1B),
-                  ],
-                  stops: [0.0, 0.30, 0.45, 1.0],
-                  begin: AlignmentGeometry.topCenter,
-                  end: AlignmentGeometry.bottomCenter,
-                ),
-              ),
+      body: Column(
+        children: [
+          CustomAppBar(),
+          Expanded(
+            child: SingleChildScrollView(
               child: Column(
                 children: [
-                  Stack(
-                    children: [
-                      SizedBox(
-                        width: double.infinity,
-                        child: Image(
-                          image: AssetImage(
-                            'assets/effects/grainy_effect3.webp',
-                          ),
-                        ),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Color(0xFFBAB9B8),
+                          Color(0xFF696967),
+                          Color(0xFF3F3F3D),
+                          Color(0xFF1D1D1B),
+                        ],
+                        stops: [0.0, 0.30, 0.45, 1.0],
+                        begin: AlignmentGeometry.topCenter,
+                        end: AlignmentGeometry.bottomCenter,
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 30),
-                        child: Column(
+                    ),
+                    child: Column(
+                      children: [
+                        Stack(
                           children: [
-                            const SizedBox(height: 60),
-                            Align(
-                              alignment: AlignmentGeometry.centerLeft,
-                              child: StaatlichesText(
-                                text: 'DISCOGRAPHY',
-                                fontSize: 57,
+                            SizedBox(
+                              width: double.infinity,
+                              child: Image(
+                                image: AssetImage(
+                                  'assets/effects/grainy_effect3.webp',
+                                ),
                               ),
                             ),
-                            ...records.map(
-                              (r) => Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 30,
-                                ),
-                                child: RecordWidget(record: r),
+                            Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 30,
+                              ),
+                              child: Column(
+                                children: [
+                                  const SizedBox(height: 60),
+                                  Align(
+                                    alignment: AlignmentGeometry.centerLeft,
+                                    child: StaatlichesText(
+                                      text: 'DISCOGRAPHY',
+                                      fontSize: 57,
+                                    ),
+                                  ),
+                                  ...records.entries.map(
+                                    (r) => Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 30,
+                                      ),
+                                      child: RecordWidget(
+                                        record: r.key,
+                                        hover: r.value,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
                         ),
-                      ),
-                    ],
+                        CollaborationTimeline(),
+                        Footer(),
+                      ],
+                    ),
                   ),
-                  CollaborationTimeline(),
-                  Footer(),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

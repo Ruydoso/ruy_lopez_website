@@ -14,178 +14,199 @@ class _PressPageMobileState extends State<PressPageMobile> {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
       endDrawer: CustomDrawer(selectedRoute: PressPage.route),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            CustomAppBar(),
-            DecoratedBox(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFFC6C6C5),
-                    Color(0xFF696967),
-                    Color(0xFF1D1D1B),
-                  ],
-                  stops: [0.0, 0.43, 1.0],
-                  begin: AlignmentGeometry.topCenter,
-                  end: AlignmentGeometry.bottomCenter,
-                ),
-              ),
-              child: Stack(
+      body: Column(
+        children: [
+          CustomAppBar(),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 40,
-                      vertical: 50,
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Color(0xFFC6C6C5),
+                          Color(0xFF696967),
+                          Color(0xFF1D1D1B),
+                        ],
+                        stops: [0.0, 0.43, 1.0],
+                        begin: AlignmentGeometry.topCenter,
+                        end: AlignmentGeometry.bottomCenter,
+                      ),
                     ),
-                    child: Column(
+                    child: Stack(
                       children: [
-                        Align(
-                          alignment: AlignmentGeometry.centerLeft,
-                          child: Padding(
-                            padding: const EdgeInsets.only(bottom: 40),
-                            child: StaatlichesText(text: 'PRESS', fontSize: 57),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 40,
+                            vertical: 50,
                           ),
-                        ),
-                        Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                const SizedBox(width: 110),
-                                MouseRegion(
-                                  cursor: SystemMouseCursors.click,
-                                  child: GestureDetector(
-                                    onTap: () => setState(() {
-                                      reversed = false;
-                                    }),
-                                    child: AnimatedContainer(
-                                      width: 104,
-                                      height: 40,
-                                      duration: Durations.medium4,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(16),
-                                          bottomLeft: Radius.circular(16),
-                                        ),
-                                        color: reversed
-                                            ? Colors.transparent
-                                            : Color(0xFFF7DAEF),
-                                        border: BoxBorder.all(
-                                          width: 0.5,
-                                          color: Color(0xFF544151),
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 5,
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            reversed
-                                                ? const SizedBox()
-                                                : Icon(
-                                                    Icons.check,
-                                                    color: Color(0xFF544151),
-                                                  ),
-                                            RobotoText(
-                                              text: 'Newest',
-                                              fontSize: 14,
-                                              color: Color(0xFF544151),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
+                          child: Column(
+                            children: [
+                              Align(
+                                alignment: AlignmentGeometry.centerLeft,
+                                child: Padding(
+                                  padding: const EdgeInsets.only(bottom: 40),
+                                  child: StaatlichesText(
+                                    text: 'PRESS',
+                                    fontSize: 57,
                                   ),
-                                ),
-                                MouseRegion(
-                                  cursor: SystemMouseCursors.click,
-                                  child: GestureDetector(
-                                    onTap: () => setState(() {
-                                      reversed = true;
-                                    }),
-                                    child: AnimatedContainer(
-                                      width: 104,
-                                      height: 40,
-                                      duration: Durations.medium4,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.only(
-                                          topRight: Radius.circular(16),
-                                          bottomRight: Radius.circular(16),
-                                        ),
-                                        color: reversed
-                                            ? Color(0xFFF7DAEF)
-                                            : Colors.transparent,
-                                        border: BoxBorder.all(
-                                          width: 0.5,
-                                          color: Color(0xFF544151),
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.symmetric(
-                                          horizontal: 5,
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceEvenly,
-                                          children: [
-                                            reversed
-                                                ? Icon(
-                                                    Icons.check,
-                                                    color: Color(0xFF544151),
-                                                  )
-                                                : const SizedBox(),
-                                            RobotoText(
-                                              text: 'Oldest',
-                                              fontSize: 14,
-                                              color: Color(0xFF544151),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            ...(reversed ? _news.reversed : _news).map(
-                              (n) => Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 28.0,
-                                ),
-                                child: SizedBox(
-                                  height: width < 350 ? width * 1.25 : 450,
-                                  width: width < 330 ? width : 330,
-                                  child: PressWidget(news: n),
                                 ),
                               ),
+                              Column(
+                                children: [
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      const SizedBox(width: 110),
+                                      MouseRegion(
+                                        cursor: SystemMouseCursors.click,
+                                        child: GestureDetector(
+                                          onTap: () => setState(() {
+                                            reversed = false;
+                                          }),
+                                          child: AnimatedContainer(
+                                            width: 104,
+                                            height: 40,
+                                            duration: Durations.medium4,
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.only(
+                                                topLeft: Radius.circular(16),
+                                                bottomLeft: Radius.circular(16),
+                                              ),
+                                              color: reversed
+                                                  ? Colors.transparent
+                                                  : Color(0xFFF7DAEF),
+                                              border: BoxBorder.all(
+                                                width: 0.5,
+                                                color: Color(0xFF544151),
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                    horizontal: 5,
+                                                  ),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: [
+                                                  reversed
+                                                      ? const SizedBox()
+                                                      : Icon(
+                                                          Icons.check,
+                                                          color: Color(
+                                                            0xFF544151,
+                                                          ),
+                                                        ),
+                                                  RobotoText(
+                                                    text: 'Newest',
+                                                    fontSize: 14,
+                                                    color: Color(0xFF544151),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      MouseRegion(
+                                        cursor: SystemMouseCursors.click,
+                                        child: GestureDetector(
+                                          onTap: () => setState(() {
+                                            reversed = true;
+                                          }),
+                                          child: AnimatedContainer(
+                                            width: 104,
+                                            height: 40,
+                                            duration: Durations.medium4,
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.only(
+                                                topRight: Radius.circular(16),
+                                                bottomRight: Radius.circular(
+                                                  16,
+                                                ),
+                                              ),
+                                              color: reversed
+                                                  ? Color(0xFFF7DAEF)
+                                                  : Colors.transparent,
+                                              border: BoxBorder.all(
+                                                width: 0.5,
+                                                color: Color(0xFF544151),
+                                              ),
+                                            ),
+                                            child: Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                    horizontal: 5,
+                                                  ),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceEvenly,
+                                                children: [
+                                                  reversed
+                                                      ? Icon(
+                                                          Icons.check,
+                                                          color: Color(
+                                                            0xFF544151,
+                                                          ),
+                                                        )
+                                                      : const SizedBox(),
+                                                  RobotoText(
+                                                    text: 'Oldest',
+                                                    fontSize: 14,
+                                                    color: Color(0xFF544151),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  ...(reversed ? _news.reversed : _news).map(
+                                    (n) => Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        vertical: 28.0,
+                                      ),
+                                      child: SizedBox(
+                                        height: width < 350
+                                            ? width * 1.25
+                                            : 450,
+                                        width: width < 330 ? width : 330,
+                                        child: PressWidget(news: n),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          left: 0,
+                          height: 17,
+                          child: Image(
+                            image: AssetImage(
+                              'assets/effects/grainy_purple_line_effect.webp',
                             ),
-                          ],
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ],
                     ),
                   ),
-                  Positioned(
-                    bottom: 0,
-                    right: 0,
-                    left: 0,
-                    height: 17,
-                    child: Image(
-                      image: AssetImage(
-                        'assets/effects/grainy_purple_line_effect.webp',
-                      ),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                  Footer(),
                 ],
               ),
             ),
-            Footer(),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

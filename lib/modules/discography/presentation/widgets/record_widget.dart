@@ -6,7 +6,8 @@ import '../../domain/records.dart';
 
 class RecordWidget extends StatefulWidget {
   final Records record;
-  const RecordWidget({super.key, required this.record});
+  final Widget hover;
+  const RecordWidget({super.key, required this.record, required this.hover});
 
   @override
   State<RecordWidget> createState() => _RecordWidgetState();
@@ -51,10 +52,8 @@ class _RecordWidgetState extends State<RecordWidget> {
               ),
               secondChild: SizedBox(
                 width: size,
-                child: Image(
-                  image: AssetImage(widget.record.hoverImagePath),
-                  fit: BoxFit.contain,
-                ),
+                height: size,
+                child: widget.hover,
               ),
             ),
           ),

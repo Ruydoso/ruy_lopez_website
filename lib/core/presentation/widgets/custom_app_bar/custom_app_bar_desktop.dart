@@ -16,7 +16,7 @@ class CustomAppBarDesktop extends StatelessWidget {
         decoration: BoxDecoration(color: Colors.white),
         child: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: width < tabletBreakPoint ? 10 : 40,
+            horizontal: width < tabletBreakPoint ? 5 : 35,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -32,7 +32,9 @@ class CustomAppBarDesktop extends StatelessWidget {
                   children: [
                     _AppBarNavigationElement(
                       text: 'HOME',
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.pushNamed(context, '/');
+                      },
                       active: selectedRoute == '/',
                     ),
                     _AppBarNavigationElement(

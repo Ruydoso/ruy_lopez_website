@@ -63,57 +63,71 @@ class _PressWidgetState extends State<PressWidget> {
                 ],
               ),
               Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 15,
-                  ),
-                  child: RobotoText(
-                    text: widget.news.title,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF1E1B13),
-                    fontSize: 16,
-                    letterSpacing: 0,
-                    textAlign: TextAlign.center,
+                child: Center(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    child: RobotoText(
+                      text: widget.news.title,
+                      fontWeight: FontWeight.w600,
+                      color: Color(0xFF1E1B13),
+                      fontSize: 16,
+                      letterSpacing: 0,
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ),
               Expanded(
-                child: Align(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 25),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            RobotoText(
-                              text: '${widget.news.media} / ',
-                              fontSize: 14,
-                              fontStyle: FontStyle.italic,
-                              color: Colors.black,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 25),
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          RobotoText(
+                            text: '${widget.news.media} / ',
+                            fontSize: 14,
+                            fontStyle: FontStyle.italic,
+                            color: Colors.black,
+                          ),
+                          RobotoText(
+                            text: widget.news.date,
+                            fontSize: 14,
+                            fontStyle: FontStyle.italic,
+                            color: Colors.black,
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 10),
+                      Expanded(
+                        child: ShaderMask(
+                          blendMode: BlendMode.dstIn,
+                          shaderCallback: (bounds) => LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
+                              Colors.white,
+                              Colors.white,
+                              Colors.white.withValues(alpha: 0.0),
+                            ],
+                            stops: [0.0, 0.8, 1.0],
+                          ).createShader(bounds),
+                          child: Padding(
+                            padding: const EdgeInsets.only(bottom: 5),
+                            child: RobotoText(
+                              maxLines: 4,
+                              text: widget.news.corpus,
+                              overflow: TextOverflow.ellipsis,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 16,
+                              height: 1.18,
+                              color: Color(0xFF201A1E),
                             ),
-                            RobotoText(
-                              text: widget.news.date,
-                              fontSize: 14,
-                              fontStyle: FontStyle.italic,
-                              color: Colors.black,
-                            ),
-                          ],
-                        ),
-                        const SizedBox(height: 10),
-                        Expanded(
-                          child: RobotoText(
-                            maxLines: 4,
-                            text: widget.news.corpus,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 16,
-                            height: 1.18,
-                            color: Color(0xFF201A1E),
                           ),
                         ),
-                      ],
-                    ),
+                      ),
+                    ],
                   ),
                 ),
               ),

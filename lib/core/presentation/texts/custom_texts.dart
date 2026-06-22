@@ -48,6 +48,7 @@ class RobotoText extends StatelessWidget {
   final TextAlign textAlign;
   final double letterSpacing;
   final double height;
+  final TextOverflow? overflow;
   const RobotoText({
     super.key,
     required this.text,
@@ -59,6 +60,7 @@ class RobotoText extends StatelessWidget {
     this.height = 1.3,
     this.fontStyle = FontStyle.normal,
     this.maxLines,
+    this.overflow,
   });
 
   @override
@@ -76,6 +78,7 @@ class RobotoText extends StatelessWidget {
       ),
       textAlign: textAlign,
       maxLines: maxLines,
+      overflow: overflow,
     );
   }
 }

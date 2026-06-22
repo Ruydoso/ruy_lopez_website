@@ -17,11 +17,7 @@ class _AnimatedTextsState extends State<AnimatedTexts> {
     return VisibilityDetector(
       key: Key('${widget.texts.hashCode}'),
       onVisibilityChanged: (info) {
-        if (info.visibleFraction < 0.4) {
-          setState(() {
-            visible = false;
-          });
-        } else {
+        if (info.visibleFraction > 0.4) {
           setState(() {
             visible = true;
           });

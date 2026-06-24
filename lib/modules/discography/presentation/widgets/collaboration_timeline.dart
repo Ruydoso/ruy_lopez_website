@@ -15,6 +15,7 @@ class CollaborationTimeline extends StatefulWidget {
 
 class _CollaborationTimelineState extends State<CollaborationTimeline> {
   bool isCollaborationSectionVisible = false;
+  double opacity = 0.29;
 
   final Map<int, bool> _expanded = {2015: false, 2020: false, 2025: false};
 
@@ -104,18 +105,21 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
     Future.delayed(
       Duration(milliseconds: 350),
       () => setState(() {
+        opacity = 0.5;
         _expanded[2025] = true;
       }),
     );
     Future.delayed(
       Duration(milliseconds: 1000),
       () => setState(() {
+        opacity = 0.7;
         _expanded[2020] = true;
       }),
     );
     Future.delayed(
       Duration(milliseconds: 1400),
       () => setState(() {
+        opacity = 1;
         _expanded[2015] = true;
       }),
     );
@@ -145,9 +149,12 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
         child: Stack(
           children: [
             Positioned.fill(
-              child: Image(
-                image: AssetImage('assets/effects/disc_grainy_effect_2.webp'),
-                fit: BoxFit.cover,
+              child: Opacity(
+                opacity: opacity,
+                child: Image(
+                  image: AssetImage('assets/effects/disc_grainy_effect_2.webp'),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             if (!mobile)
@@ -347,34 +354,26 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
       children: [
         Padding(
           padding: const EdgeInsets.only(top: 3),
-          child: MouseRegion(
-            cursor: SystemMouseCursors.click,
-            child: GestureDetector(
-              onTap: () => setState(() => _expanded[year] = !_expanded[year]!),
-              child: Row(
-                children: [
-                  DecoratedBox(
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: _expanded[year]!
-                          ? Color(0xFF6D0070)
-                          : Color(0xFFF213F8),
-                    ),
-                    child: AnimatedRotation(
-                      turns: _expanded[year]! ? 0 : -0.5,
-                      duration: const Duration(milliseconds: 300),
-                      child: Icon(
-                        Icons.expand_more,
-                        color: _expanded[year]!
-                            ? Color(0xFFF0B3E7)
-                            : Colors.black,
-                        size: mobile ? 25 : 40,
-                      ),
-                    ),
+          child: Row(
+            children: [
+              DecoratedBox(
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: _expanded[year]!
+                      ? Color(0xFF6D0070)
+                      : Color(0xFFF213F8),
+                ),
+                child: AnimatedRotation(
+                  turns: _expanded[year]! ? 0 : -0.5,
+                  duration: const Duration(milliseconds: 300),
+                  child: Icon(
+                    Icons.expand_more,
+                    color: _expanded[year]! ? Color(0xFFF0B3E7) : Colors.black,
+                    size: mobile ? 25 : 40,
                   ),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
         ),
 

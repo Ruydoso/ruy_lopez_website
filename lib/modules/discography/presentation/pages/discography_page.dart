@@ -31,7 +31,7 @@ final Map<Records, Widget> records = {
     link:
         'https://music.apple.com/us/album/dos-lenguajes-en-vivo/1547698982?l=en-GB',
   ): HoverRecordWidget(
-    buttonText: 'Listen Live',
+    buttonText: 'Listen Single',
     recordTitle: '2 Lenguajes'.toUpperCase(),
   ),
 };

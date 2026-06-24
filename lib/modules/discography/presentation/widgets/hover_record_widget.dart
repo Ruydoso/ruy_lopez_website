@@ -90,7 +90,7 @@ class _RecordWidgetPainter extends CustomPainter {
     );
 
     canvas.drawCircle(center, (size.width * 0.25) - 7, centerFillPaint);
-    canvas.drawCircle(center, size.width * 0.06, centerPaint);
+    canvas.drawCircle(center, size.width * 0.035, centerPaint);
     canvas.drawCircle(center, size.width * 0.25, innerCirclePaint);
     canvas.drawCircle(center, size.width * 0.32, outerCirclePaint);
     canvas.drawRRect(rrect, rrectPaint);

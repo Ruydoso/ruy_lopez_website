@@ -1,8 +1,14 @@
 part of 'home_page.dart';
 
-class HomePageDesktop extends StatelessWidget {
+class HomePageDesktop extends StatefulWidget {
   const HomePageDesktop({super.key});
 
+  @override
+  State<HomePageDesktop> createState() => _HomePageDesktopState();
+}
+
+class _HomePageDesktopState extends State<HomePageDesktop> {
+  bool hoveringSeeMoreButton = false;
   @override
   Widget build(BuildContext context) {
     final baseTextStyle = TextStyle(
@@ -134,6 +140,12 @@ class HomePageDesktop extends StatelessWidget {
                                     Align(
                                       alignment: AlignmentGeometry.centerRight,
                                       child: MouseRegion(
+                                        onEnter: (event) => setState(
+                                          () => hoveringSeeMoreButton = true,
+                                        ),
+                                        onExit: (event) => setState(
+                                          () => hoveringSeeMoreButton = false,
+                                        ),
                                         cursor: SystemMouseCursors.click,
                                         child: GestureDetector(
                                           onTap: () {
@@ -144,6 +156,10 @@ class HomePageDesktop extends StatelessWidget {
                                           },
                                           child: Container(
                                             decoration: BoxDecoration(
+                                              color: hoveringSeeMoreButton
+                                                  ? CustomColors
+                                                        .textLightPinkColor
+                                                  : Colors.transparent,
                                               borderRadius:
                                                   BorderRadius.circular(18),
                                               border: BoxBorder.all(
@@ -158,8 +174,14 @@ class HomePageDesktop extends StatelessWidget {
                                               child: RobotoText(
                                                 text: 'See More',
                                                 fontSize: 16,
-                                                color: CustomColors
-                                                    .textLightPinkColor,
+                                                fontWeight:
+                                                    hoveringSeeMoreButton
+                                                    ? FontWeight.w600
+                                                    : FontWeight.w500,
+                                                color: hoveringSeeMoreButton
+                                                    ? Color(0xFF330833)
+                                                    : CustomColors
+                                                          .textLightPinkColor,
                                                 letterSpacing: 0,
                                               ),
                                             ),

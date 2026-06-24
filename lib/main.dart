@@ -16,6 +16,7 @@ class RuyLopezWebsite extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'Ruy Adrián López-Nussa',
       initialRoute: '/',
       debugShowCheckedModeBanner: false,
       routes: {

@@ -33,42 +33,42 @@ class CustomAppBarDesktop extends StatelessWidget {
                     _AppBarNavigationElement(
                       text: 'HOME',
                       onTap: () {
-                        Navigator.pushNamed(context, '/');
+                        Navigator.pushReplacementNamed(context, '/');
                       },
                       active: selectedRoute == '/',
                     ),
                     _AppBarNavigationElement(
                       text: 'DISCOGRAPHY',
                       onTap: () {
-                        Navigator.pushNamed(context, '/discography');
+                        Navigator.pushReplacementNamed(context, '/discography');
                       },
                       active: selectedRoute == '/discography',
                     ),
                     _AppBarNavigationElement(
                       text: 'MEDIA',
                       onTap: () {
-                        Navigator.pushNamed(context, '/media');
+                        Navigator.pushReplacementNamed(context, '/media');
                       },
                       active: selectedRoute == '/media',
                     ),
                     _AppBarNavigationElement(
                       text: 'WORKSHOP',
                       onTap: () {
-                        Navigator.pushNamed(context, '/workshop');
+                        Navigator.pushReplacementNamed(context, '/workshop');
                       },
                       active: selectedRoute == '/workshop',
                     ),
                     _AppBarNavigationElement(
                       text: 'PRESS',
                       onTap: () {
-                        Navigator.pushNamed(context, '/press');
+                        Navigator.pushReplacementNamed(context, '/press');
                       },
                       active: selectedRoute == '/press',
                     ),
                     _AppBarNavigationElement(
                       text: 'BIO',
                       onTap: () {
-                        Navigator.pushNamed(context, '/bio');
+                        Navigator.pushReplacementNamed(context, '/bio');
                       },
                       active: selectedRoute == '/bio',
                     ),

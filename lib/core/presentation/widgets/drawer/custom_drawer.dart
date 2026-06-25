@@ -38,42 +38,42 @@ class CustomDrawer extends StatelessWidget {
                 _DrawerNavigationElement(
                   text: 'Home',
                   onTap: () {
-                    Navigator.pushNamed(context, '/');
+                    Navigator.pushReplacementNamed(context, '/');
                   },
                   active: selectedRoute == '/',
                 ),
                 _DrawerNavigationElement(
                   text: 'Discography ',
                   onTap: () {
-                    Navigator.pushNamed(context, '/discography');
+                    Navigator.pushReplacementNamed(context, '/discography');
                   },
                   active: selectedRoute == '/discography',
                 ),
                 _DrawerNavigationElement(
                   text: 'Media',
                   onTap: () {
-                    Navigator.pushNamed(context, '/media');
+                    Navigator.pushReplacementNamed(context, '/media');
                   },
                   active: selectedRoute == '/media',
                 ),
                 _DrawerNavigationElement(
                   text: 'Workshop',
                   onTap: () {
-                    Navigator.pushNamed(context, '/workshop');
+                    Navigator.pushReplacementNamed(context, '/workshop');
                   },
                   active: selectedRoute == '/workshop',
                 ),
                 _DrawerNavigationElement(
                   text: 'Press',
                   onTap: () {
-                    Navigator.pushNamed(context, '/press');
+                    Navigator.pushReplacementNamed(context, '/press');
                   },
                   active: selectedRoute == '/press',
                 ),
                 _DrawerNavigationElement(
                   text: 'Biography',
                   onTap: () {
-                    Navigator.pushNamed(context, '/bio');
+                    Navigator.pushReplacementNamed(context, '/bio');
                   },
                   active: selectedRoute == '/bio',
                 ),

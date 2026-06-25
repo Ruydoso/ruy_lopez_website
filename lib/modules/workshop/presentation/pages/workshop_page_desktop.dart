@@ -242,7 +242,13 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                                                   cursor:
                                                       SystemMouseCursors.click,
                                                   child: GestureDetector(
-                                                    onTap: () {},
+                                                    onTap: () {
+                                                      launchUrl(
+                                                        Uri.parse(
+                                                          'https://stanfordjazz.org/stanford-jazz-festival/',
+                                                        ),
+                                                      );
+                                                    },
                                                     child: DecoratedBox(
                                                       decoration: BoxDecoration(
                                                         border: Border(

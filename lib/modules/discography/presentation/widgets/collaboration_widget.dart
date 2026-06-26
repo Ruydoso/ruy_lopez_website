@@ -37,9 +37,17 @@ class _CollaborationWidgetState extends State<CollaborationWidget> {
                   child: AnimatedScale(
                     scale: _isHovering ? 1.2 : 1.0,
                     duration: Durations.long1,
-                    child: Image(
-                      image: AssetImage(widget.collaboration.imagePath),
-                      fit: BoxFit.cover,
+                    child: DecoratedBox(
+                      position: DecorationPosition.foreground,
+                      decoration: BoxDecoration(
+                        color: _isHovering
+                            ? Color(0x997F4D7B)
+                            : Colors.transparent,
+                      ),
+                      child: Image(
+                        image: AssetImage(widget.collaboration.imagePath),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),

@@ -160,7 +160,7 @@ class _FooterDesktopState extends State<FooterDesktop> {
                   children: [
                     const Expanded(child: SizedBox()),
                     RobotoText(
-                      text: '© Ruy A. Lopez Nussa 2026. All rights reserved.',
+                      text: '© Ruy A. López Nussa 2026. All rights reserved.',
                       fontSize: 22,
                     ),
                     Expanded(

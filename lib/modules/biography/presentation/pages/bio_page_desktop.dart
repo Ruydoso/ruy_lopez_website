@@ -260,7 +260,7 @@ class BioPageDesktop extends StatelessWidget {
                                                 AnimatedTexts(
                                                   texts: RobotoText(
                                                     text:
-                                                        'Beyond the drum kit, López Nussa has stepped into the realm of composition. His compositional versatility extends to the screen, as he also creates compelling scores and compositions for cinema (film compositions), demonstrating his ability to adapt his unique sound and emotional depth to narrative storytelling.',
+                                                        'Beyond the drum kit, López Nussa has stepped into the realm of composition. His compositional versatility extends to the screen, as he also creates compelling scores and compositions for cinema, demonstrating his ability to adapt his unique sound and emotional depth to narrative storytelling.',
                                                     fontWeight: FontWeight.w400,
                                                     letterSpacing: 0,
                                                     height: 1.22,

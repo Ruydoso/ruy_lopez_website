@@ -12,27 +12,31 @@ part 'discography_page_mobile.dart';
 
 final Map<Records, Widget> records = {
   Records(
-    imagePath: 'assets/images/records/record1.webp',
+    imagePath: 'assets/images/records/record1.jpg',
     link:
         'https://music.apple.com/us/album/de-ruydoso-a-san-francisco-single/1889920301?l=en-GB',
   ): HoverRecordWidget(
-    buttonText: 'See More',
+    buttonText: 'Listen Single',
+    recordYear: 'Coming Soon',
+    notPublished: true,
   ),
   Records(
     imagePath: 'assets/images/records/record2.webp',
     link:
         'https://music.apple.com/us/album/los-3-mosqueteros/1624812546?l=en-GB',
   ): HoverRecordWidget(
-    buttonText: 'Listen Single',
+    buttonText: 'See More',
     recordTitle: 'Los 3 Mosqueteros'.toUpperCase(),
+    recordYear: '2022',
   ),
   Records(
     imagePath: 'assets/images/records/record3.webp',
     link:
         'https://music.apple.com/us/album/dos-lenguajes-en-vivo/1547698982?l=en-GB',
   ): HoverRecordWidget(
-    buttonText: 'Listen Single',
+    buttonText: 'See More',
     recordTitle: '2 Lenguajes'.toUpperCase(),
+    recordYear: '2021',
   ),
 };
 

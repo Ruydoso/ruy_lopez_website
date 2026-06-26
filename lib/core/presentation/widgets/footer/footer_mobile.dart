@@ -68,7 +68,7 @@ class FooterMobile extends StatelessWidget {
                 ),
               ),
               DecoratedBox(
-                decoration: BoxDecoration(color: Color(0xB0B5A7B0)),
+                decoration: BoxDecoration(color: Color(0x1EFFFFFF)),
                 child: GestureDetector(
                   onTap: () {
                     launchUrl(
@@ -76,13 +76,16 @@ class FooterMobile extends StatelessWidget {
                     );
                   },
                   child: Padding(
-                    padding: const EdgeInsets.all(28.0),
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 28,
+                      horizontal: 15,
+                    ),
                     child: Row(
                       children: [
                         Icon(
                           Icons.mail_outline_rounded,
                           color: Colors.white,
-                          size: 50,
+                          size: 40,
                         ),
                         const SizedBox(width: 40),
 
@@ -119,7 +122,7 @@ class FooterMobile extends StatelessWidget {
                 height: 50,
                 child: Center(
                   child: RobotoText(
-                    text: '© Ruy A. Lopez Nussa 2026. All rights reserved.',
+                    text: '© Ruy A. López Nussa 2026. All rights reserved.',
                     fontSize: 14,
                   ),
                 ),

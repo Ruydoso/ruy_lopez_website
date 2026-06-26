@@ -336,72 +336,71 @@ class _TrackListElementState extends State<_TrackListElement> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 3),
-      child: MouseRegion(
-        onEnter: (event) => setState(() => isHovering = true),
-        onExit: (event) => setState(() => isHovering = false),
-        child: GestureDetector(
-          onTap: widget.onTap,
-          child: Container(
-            padding: const EdgeInsets.symmetric(vertical: 14.0, horizontal: 15),
-            foregroundDecoration: BoxDecoration(
-              border: Border(
-                bottom: BorderSide(
-                  color: Colors.black.withValues(alpha: 0.4),
-                  width: isHovering ? 1.2 : 1,
-                ),
-              ),
-              boxShadow: isHovering
-                  ? [
-                      BoxShadow(
-                        blurRadius: 17.0,
-                        spreadRadius: -5,
-                        offset: const Offset(0, 22),
-                        color: CustomColors.lightPinkAppColor.withValues(
-                          alpha: 0.2,
-                        ),
-                      ),
-                    ]
-                  : [],
-            ),
-            decoration: BoxDecoration(
-              color: Color(0xFFF7EBF1),
-              boxShadow: isHovering
-                  ? [
-                      BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.25),
-                        blurRadius: 5.0,
-                        spreadRadius: -5,
-                        offset: const Offset(0, 8.0),
-                      ),
-                    ]
-                  : null,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                RobotoText(
-                  text: widget.track.title.toUpperCase(),
-                  color: Colors.black.withAlpha(widget.isCurrent ? 255 : 180),
-                  fontWeight: widget.isCurrent
-                      ? FontWeight.w900
-                      : FontWeight.w500,
-                  fontSize: 14,
-                ),
-                RobotoText(
-                  text: widget.track.duration.toUpperCase(),
-                  color: Colors.black.withAlpha(widget.isCurrent ? 255 : 180),
-                  fontWeight: widget.isCurrent
-                      ? FontWeight.w900
-                      : FontWeight.w500,
-                  fontSize: 10,
-                ),
-              ],
-            ),
+    final mobile = MediaQuery.of(context).size.width < mobileBreakPoint;
+
+    final trackElement = Container(
+      padding: const EdgeInsets.symmetric(vertical: 14.0, horizontal: 15),
+      foregroundDecoration: BoxDecoration(
+        border: Border(
+          bottom: BorderSide(
+            color: Colors.black.withValues(alpha: 0.4),
+            width: isHovering ? 1.2 : 1,
           ),
         ),
+        boxShadow: isHovering
+            ? [
+                BoxShadow(
+                  blurRadius: 17.0,
+                  spreadRadius: -5,
+                  offset: const Offset(0, 22),
+                  color: CustomColors.lightPinkAppColor.withValues(alpha: 0.2),
+                ),
+              ]
+            : [],
       ),
+      decoration: BoxDecoration(
+        boxShadow: isHovering
+            ? [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.25),
+                  blurRadius: 5.0,
+                  spreadRadius: -5,
+                  offset: const Offset(0, 8.0),
+                ),
+              ]
+            : null,
+      ),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          RobotoText(
+            text: widget.track.title.toUpperCase(),
+            color: Colors.black.withAlpha(widget.isCurrent ? 255 : 180),
+            fontWeight: widget.isCurrent ? FontWeight.w900 : FontWeight.w500,
+            fontSize: 14,
+          ),
+          RobotoText(
+            text: widget.track.duration.toUpperCase(),
+            color: Colors.black.withAlpha(widget.isCurrent ? 255 : 180),
+            fontWeight: widget.isCurrent ? FontWeight.w900 : FontWeight.w500,
+            fontSize: 10,
+          ),
+        ],
+      ),
+    );
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 32, vertical: 3),
+      child: mobile
+          ? Material(
+              color: Color(0xFFF7EBF1),
+              child: InkWell(onTap: widget.onTap, child: trackElement),
+            )
+          : MouseRegion(
+              onEnter: (event) => setState(() => isHovering = true),
+              onExit: (event) => setState(() => isHovering = false),
+              child: GestureDetector(onTap: widget.onTap, child: trackElement),
+            ),
     );
   }
 }

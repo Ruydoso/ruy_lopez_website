@@ -34,13 +34,27 @@ class _WorkshopPageMobileState extends State<WorkshopPageMobile> {
                   Stack(
                     children: [
                       SizedBox(width: double.infinity),
-                      SizedBox(
-                        width: double.infinity,
-                        child: Image(
-                          image: AssetImage(
-                            'assets/images/workshop_image1_mobile.webp',
+                      Positioned.fill(
+                        child: DecoratedBox(
+                          position: DecorationPosition.foreground,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.black.withValues(alpha: 0.3),
+                                Colors.black.withValues(alpha: 0.3),
+                                Colors.transparent,
+                              ],
+                              stops: [0.0, 0.8, 1.0],
+                              begin: AlignmentGeometry.centerLeft,
+                              end: AlignmentGeometry.centerRight,
+                            ),
                           ),
-                          fit: BoxFit.cover,
+                          child: Image(
+                            image: AssetImage(
+                              'assets/images/workshop_image1_mobile.webp',
+                            ),
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                       Padding(
@@ -63,7 +77,7 @@ class _WorkshopPageMobileState extends State<WorkshopPageMobile> {
                                 height: 1.42,
                                 letterSpacing: 0.25,
                                 text:
-                                    'Ruy Adrián López Nussa as well is knowed for participate as teacher in multiples workshops and music magistral classes. Annually his classes wake up the interest of the music lovers specifically drummers.\n\nBetween this projects we found ones very popular as the Standford Jazz Festival, or the Cuban music workshops he makes with his old brother Harold López - Nussa.',
+                                    'In addition to his performance career, Ruy Adrián López-Nussa is a highly sought-after educator who leads numerous workshops and masterclasses. Each year, his sessions captivate music enthusiasts—especially drummers.\n\nNotable highlights among his educational projects include the Stanford Jazz Festival and the specialized Cuban music workshops he co-hosts alongside his older brother, Harold López-Nussa.',
                               ),
                             ),
                             const SizedBox(height: 40),

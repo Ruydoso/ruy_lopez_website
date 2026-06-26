@@ -64,7 +64,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                             duration: Durations.medium4,
                             child: Image(
                               image: AssetImage(
-                                'assets/images/home_image1top_mobile.webp',
+                                'assets/images/home_image1top_mobile.png',
                               ),
                               fit: BoxFit.cover,
                             ),
@@ -123,27 +123,23 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                           ),
                                           TextSpan(
                                             text:
-                                                'virtuoso drummer and a composer.\n\n',
+                                                'virtuoso drummer and composer.\n\n',
                                             style: baseTextStyle.copyWith(
                                               fontWeight: FontWeight.w900,
                                             ),
                                           ),
                                           TextSpan(
                                             text:
-                                                "Born into one of Cuba's most influential musical families, he is a leading force in Latin Jazz, known for his rhythmic, complexity and powerful international collaborations. Beyond the stage, he excels in film and media scoring, creating emotive compositions that merge orchestral and Latin textures. His compositional talent was officially recognized in 2021 when he secured the top award at the ",
+                                                "Born into one of Cuba's most influential musical families, he is a leading force in Latin Jazz, known for his rhythmic complexity and powerful international collaborations. Beyond the stage, he excels in film and media scoring, creating emotive compositions that merge orchestral and Latin textures. His compositional talent was officially recognized in 2021 when he secured the top award at the ",
                                             style: baseTextStyle,
                                           ),
                                           TextSpan(
                                             text:
-                                                "IV SGAE 'Tete Montoliu' Jazz Composition Competition in 2021 ",
+                                                "IV SGAE 'Tete Montoliu' Jazz Composition Competition in 2021\n\n",
                                             style: baseTextStyle.copyWith(
                                               fontStyle: FontStyle.italic,
                                               fontWeight: FontWeight.w300,
                                             ),
-                                          ),
-                                          TextSpan(
-                                            text: 'sponsored by SGAE.\n\n',
-                                            style: baseTextStyle,
                                           ),
                                           TextSpan(
                                             text:
@@ -157,7 +153,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                     ),
                                   ),
                                 ),
-                                const SizedBox(height: 10),
+                                const SizedBox(height: 20),
                                 Align(
                                   alignment: AlignmentGeometry.centerRight,
                                   child: MouseRegion(

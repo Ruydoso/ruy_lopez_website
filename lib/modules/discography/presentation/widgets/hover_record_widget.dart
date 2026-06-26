@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:ruy_lopez_website/core/presentation/texts/custom_texts.dart';
+import 'package:ruy_lopez_website/core/utils/breakpoints.dart';
 
 class HoverRecordWidget extends StatelessWidget {
   final String buttonText;
   final String? recordTitle;
+  final String recordYear;
+  final bool notPublished;
   const HoverRecordWidget({
     super.key,
     required this.buttonText,
     this.recordTitle,
+    required this.recordYear,
+    this.notPublished = false,
   });
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     return Container(
       width: double.infinity,
       height: double.infinity,
@@ -20,7 +26,12 @@ class HoverRecordWidget extends StatelessWidget {
         fit: StackFit.expand,
         alignment: Alignment.center,
         children: [
-          CustomPaint(painter: _RecordWidgetPainter()),
+          CustomPaint(
+            painter: _RecordWidgetPainter(
+              year: recordYear,
+              overlayCover: notPublished,
+            ),
+          ),
           Positioned(
             bottom: 0,
             child: Column(
@@ -28,10 +39,10 @@ class HoverRecordWidget extends StatelessWidget {
                 RobotoText(
                   text: recordTitle ?? '',
                   fontWeight: FontWeight.w400,
-                  fontSize: 26,
+                  fontSize: width < tabletBreakPoint ? 20 : 28,
                   color: Colors.white.withValues(alpha: 0.8),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 20),
                 DecoratedBox(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.only(
@@ -62,6 +73,11 @@ class HoverRecordWidget extends StatelessWidget {
 }
 
 class _RecordWidgetPainter extends CustomPainter {
+  final String year;
+  final bool overlayCover;
+
+  _RecordWidgetPainter({required this.year, this.overlayCover = false});
+
   @override
   void paint(Canvas canvas, Size size) {
     final center = size.center(Offset(0, -size.height * 0.15));
@@ -82,11 +98,27 @@ class _RecordWidgetPainter extends CustomPainter {
 
     final rrect = RRect.fromRectAndRadius(
       Rect.fromCenter(
-        center: size.center(Offset(0, size.height * 0.175)),
+        center: overlayCover
+            ? size.center(Offset.zero)
+            : size.center(Offset(0, size.height * 0.175)),
         width: size.width,
-        height: size.height * 0.65,
+        height: overlayCover ? size.height : size.height * 0.65,
       ),
       Radius.circular(10),
+    );
+
+    final textStyle = TextStyle(
+      fontFamily: 'Roboto',
+      color: Color(0xFF653662),
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+    );
+
+    final textSpan = TextSpan(text: year, style: textStyle);
+    final textPainter = TextPainter(
+      text: textSpan,
+      textDirection: TextDirection.ltr,
+      textAlign: TextAlign.center,
     );
 
     canvas.drawCircle(center, (size.width * 0.25) - 7, centerFillPaint);
@@ -94,6 +126,12 @@ class _RecordWidgetPainter extends CustomPainter {
     canvas.drawCircle(center, size.width * 0.25, innerCirclePaint);
     canvas.drawCircle(center, size.width * 0.32, outerCirclePaint);
     canvas.drawRRect(rrect, rrectPaint);
+
+    textPainter.layout(minWidth: 0, maxWidth: size.width * 0.22);
+    textPainter.paint(
+      canvas,
+      center.translate(-textPainter.size.width / 2, size.width * 0.08),
+    );
   }
 
   @override

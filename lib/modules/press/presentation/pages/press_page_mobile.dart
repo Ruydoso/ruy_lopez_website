@@ -8,7 +8,7 @@ class PressPageMobile extends StatefulWidget {
 }
 
 class _PressPageMobileState extends State<PressPageMobile> {
-  bool reversed = false;
+  bool _oldest = false;
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -63,7 +63,7 @@ class _PressPageMobileState extends State<PressPageMobile> {
                                         cursor: SystemMouseCursors.click,
                                         child: GestureDetector(
                                           onTap: () => setState(() {
-                                            reversed = false;
+                                            _oldest = false;
                                           }),
                                           child: AnimatedContainer(
                                             width: 104,
@@ -74,7 +74,7 @@ class _PressPageMobileState extends State<PressPageMobile> {
                                                 topLeft: Radius.circular(16),
                                                 bottomLeft: Radius.circular(16),
                                               ),
-                                              color: reversed
+                                              color: _oldest
                                                   ? Colors.transparent
                                                   : Color(0xFFF7DAEF),
                                               border: BoxBorder.all(
@@ -92,7 +92,7 @@ class _PressPageMobileState extends State<PressPageMobile> {
                                                     MainAxisAlignment
                                                         .spaceEvenly,
                                                 children: [
-                                                  reversed
+                                                  _oldest
                                                       ? const SizedBox()
                                                       : Icon(
                                                           Icons.check,
@@ -115,7 +115,7 @@ class _PressPageMobileState extends State<PressPageMobile> {
                                         cursor: SystemMouseCursors.click,
                                         child: GestureDetector(
                                           onTap: () => setState(() {
-                                            reversed = true;
+                                            _oldest = true;
                                           }),
                                           child: AnimatedContainer(
                                             width: 104,
@@ -128,7 +128,7 @@ class _PressPageMobileState extends State<PressPageMobile> {
                                                   16,
                                                 ),
                                               ),
-                                              color: reversed
+                                              color: _oldest
                                                   ? Color(0xFFF7DAEF)
                                                   : Colors.transparent,
                                               border: BoxBorder.all(
@@ -146,7 +146,7 @@ class _PressPageMobileState extends State<PressPageMobile> {
                                                     MainAxisAlignment
                                                         .spaceEvenly,
                                                 children: [
-                                                  reversed
+                                                  _oldest
                                                       ? Icon(
                                                           Icons.check,
                                                           color: Color(
@@ -167,7 +167,7 @@ class _PressPageMobileState extends State<PressPageMobile> {
                                       ),
                                     ],
                                   ),
-                                  ...(reversed ? _news.reversed : _news).map(
+                                  ...(_oldest ? _oldNews : _news).map(
                                     (n) => Padding(
                                       padding: const EdgeInsets.symmetric(
                                         vertical: 28.0,

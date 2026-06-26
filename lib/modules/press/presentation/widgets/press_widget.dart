@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:ruy_lopez_website/core/presentation/presentation.dart';
+import 'package:ruy_lopez_website/core/utils/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../domain/news.dart';
@@ -21,8 +22,17 @@ class _PressWidgetState extends State<PressWidget> {
       onEnter: (details) => setState(() => isHovering = true),
       onExit: (details) => setState(() => isHovering = false),
       child: GestureDetector(
-        onTap: () {
+        onTap: () async {
+          if (MediaQuery.of(context).size.width < mobileBreakPoint) {
+            setState(() {
+              isHovering = true;
+            });
+            await Future.delayed(Durations.short2);
+          }
           launchUrl(Uri.parse(widget.news.link));
+          setState(() {
+            isHovering = false;
+          });
         },
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 20),
@@ -111,7 +121,7 @@ class _PressWidgetState extends State<PressWidget> {
                               Colors.white,
                               Colors.white.withValues(alpha: 0.0),
                             ],
-                            stops: [0.0, 0.8, 1.0],
+                            stops: [0.0, 0.6, 1.0],
                           ).createShader(bounds),
                           child: Padding(
                             padding: const EdgeInsets.only(bottom: 5),

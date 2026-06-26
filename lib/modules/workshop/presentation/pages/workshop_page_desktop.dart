@@ -23,6 +23,8 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Column(
         children: [
@@ -33,18 +35,35 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                 children: [
                   Stack(
                     children: [
-                      SizedBox(
-                        width: double.infinity,
-                        height: 750,
-                        child: Image(
-                          image: AssetImage(
-                            'assets/images/workshop_image1_desktop.webp',
+                      Positioned.fill(
+                        child: DecoratedBox(
+                          position: DecorationPosition.foreground,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              colors: [
+                                Colors.black.withValues(alpha: 0.3),
+                                Colors.black.withValues(alpha: 0.3),
+                                Colors.transparent,
+                              ],
+                              stops: [0.0, 0.8, 1.0],
+                              begin: AlignmentGeometry.centerLeft,
+                              end: AlignmentGeometry.centerRight,
+                            ),
                           ),
-                          fit: BoxFit.cover,
+                          child: Image(
+                            image: AssetImage(
+                              'assets/images/workshop_image1_desktop.webp',
+                            ),
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 150, top: 60),
+                        padding: const EdgeInsets.only(
+                          left: 150,
+                          top: 60,
+                          bottom: 100,
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -53,13 +72,20 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                               fontSize: 96,
                               letterSpacing: 0,
                             ),
-                            const SizedBox(height: 30),
-                            RobotoText(
-                              text:
-                                  'Ruy Adrián López Nussa as well is knowed\nfor participate as teacher in multiples\nworkshops and music magistral classes.\nAnnually his classes wake up the interest\nof the music lovers specifically drummers.\n\nBetween this projects we found ones very\npopular as the Standford Jazz Festival,\nor the Cuban music workshops he makes\nwith his old brother Harold López - Nussa.',
-                              fontWeight: FontWeight.w400,
-                              textAlign: TextAlign.start,
-                              letterSpacing: 0,
+                            const SizedBox(height: 60),
+                            ConstrainedBox(
+                              constraints: BoxConstraints(
+                                maxWidth: width > desktopBreakpoint
+                                    ? width * 0.3
+                                    : width * 0.5,
+                              ),
+                              child: RobotoText(
+                                text:
+                                    'In addition to his performance career, Ruy Adrián López-Nussa is a highly sought-after educator who leads numerous workshops and masterclasses. Each year, his sessions captivate music enthusiasts—especially drummers.\n\nNotable highlights among his educational projects include the Stanford Jazz Festival and the specialized Cuban music workshops he co-hosts alongside his older brother, Harold López-Nussa.',
+                                fontWeight: FontWeight.w400,
+                                textAlign: TextAlign.start,
+                                letterSpacing: 0,
+                              ),
                             ),
                             const SizedBox(height: 30),
                             Row(

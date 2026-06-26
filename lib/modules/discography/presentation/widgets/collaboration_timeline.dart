@@ -15,6 +15,7 @@ class CollaborationTimeline extends StatefulWidget {
 
 class _CollaborationTimelineState extends State<CollaborationTimeline> {
   bool isCollaborationSectionVisible = false;
+  bool animationTriggered = false;
   double opacity = 0.29;
 
   final Map<int, bool> _expanded = {2015: false, 2020: false, 2025: false};
@@ -99,36 +100,43 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
   };
 
   void _triggerTimeLineAnimation() async {
-    setState(() {
-      isCollaborationSectionVisible = true;
-    });
-    Future.delayed(
-      Duration(milliseconds: 350),
-      () => setState(() {
-        opacity = 0.5;
-        _expanded[2025] = true;
-      }),
-    );
-    Future.delayed(
-      Duration(milliseconds: 1000),
-      () => setState(() {
-        opacity = 0.7;
-        _expanded[2020] = true;
-      }),
-    );
-    Future.delayed(
-      Duration(milliseconds: 1400),
-      () => setState(() {
-        opacity = 1;
-        _expanded[2015] = true;
-      }),
-    );
+    if (!animationTriggered) {
+      animationTriggered = true;
+      setState(() {
+        isCollaborationSectionVisible = true;
+      });
+      Future.delayed(
+        Duration(milliseconds: 350),
+        () => setState(() {
+          opacity = 0.5;
+          _expanded[2025] = true;
+        }),
+      );
+      Future.delayed(
+        Duration(milliseconds: 1000),
+        () => setState(() {
+          opacity = 0.7;
+          _expanded[2020] = true;
+        }),
+      );
+      Future.delayed(
+        Duration(milliseconds: 1400),
+        () => setState(() {
+          opacity = 1;
+          _expanded[2015] = true;
+        }),
+      );
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final mobile = width < mobileBreakPoint;
+    final heigth = MediaQuery.of(context).size.height;
+    if (heigth < 450) {
+      _triggerTimeLineAnimation();
+    }
 
     return VisibilityDetector(
       key: Key('timeLineKey'),
@@ -189,30 +197,19 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
                   ),
                 ),
               ),
-            Positioned(
-              bottom: 0,
-              right: 0,
-              left: 0,
-              height: 17,
-              child: Image(
-                image: AssetImage(
-                  'assets/effects/grainy_purple_line_effect.webp',
-                ),
-                fit: BoxFit.cover,
-              ),
-            ),
+
             Positioned(
               top: 0,
-              bottom: 0,
+              bottom: 15,
               left: mobile ? 20 : width * 0.15,
               child: Container(width: mobile ? 5.5 : 7, color: Colors.white),
             ),
             Positioned(
               top: 0,
-              bottom: 0,
+              bottom: 15,
               left: mobile ? 20 : width * 0.15,
               child: TweenAnimationBuilder<double>(
-                curve: Curves.easeOut,
+                curve: Curves.easeInOut,
                 tween: Tween<double>(
                   begin: 0.0,
                   end: isCollaborationSectionVisible ? 1.0 : 0.0,
@@ -322,7 +319,9 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
               child: Column(
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(right: 158.0),
+                    padding: mobile
+                        ? EdgeInsetsGeometry.only(left: 10)
+                        : const EdgeInsets.only(right: 158.0),
                     child: RobotoText(
                       text: 'COLLABORATIONS',
                       fontSize: mobile ? 32 : 45,
@@ -330,14 +329,26 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  _buildTimeLineSection(2025, mobile),
+                  _buildTimeLineSection(2025, mobile, opacity),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 60),
-                    child: _buildTimeLineSection(2020, mobile),
+                    child: _buildTimeLineSection(2020, mobile, opacity),
                   ),
-                  _buildTimeLineSection(2015, mobile),
+                  _buildTimeLineSection(2015, mobile, opacity),
                   const SizedBox(height: 100),
                 ],
+              ),
+            ),
+            Positioned(
+              bottom: 0,
+              right: 0,
+              left: 0,
+              height: 17,
+              child: Image(
+                image: AssetImage(
+                  'assets/effects/grainy_purple_line_effect.webp',
+                ),
+                fit: BoxFit.cover,
               ),
             ),
           ],
@@ -346,75 +357,67 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
     );
   }
 
-  Widget _buildTimeLineSection(int year, bool mobile) {
+  Widget _buildTimeLineSection(int year, bool mobile, double opacity) {
+    print(opacity);
     final albums = collaborations[year];
 
-    return Row(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 3),
-          child: Row(
-            children: [
-              DecoratedBox(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color: _expanded[year]!
-                      ? Color(0xFF6D0070)
-                      : Color(0xFFF213F8),
-                ),
-                child: AnimatedRotation(
-                  turns: _expanded[year]! ? 0 : -0.5,
-                  duration: const Duration(milliseconds: 300),
-                  child: Icon(
-                    Icons.expand_more,
-                    color: _expanded[year]! ? Color(0xFFF0B3E7) : Colors.black,
-                    size: mobile ? 25 : 40,
-                  ),
+        Row(
+          children: [
+            DecoratedBox(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: _expanded[year]! ? Color(0xFF6D0070) : Color(0xFFF213F8),
+              ),
+              child: AnimatedRotation(
+                turns: _expanded[year]! ? 0 : -0.5,
+                duration: const Duration(milliseconds: 300),
+                child: Icon(
+                  Icons.expand_more,
+                  color: _expanded[year]! ? Color(0xFFF0B3E7) : Colors.black,
+                  size: mobile ? 25 : 40,
                 ),
               ),
-            ],
-          ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 5),
+              child: RobotoText(
+                text: '$year',
+                fontWeight: FontWeight.bold,
+                fontSize: mobile ? 26 : 33,
+                color: Color(0xFFD100D7),
+              ),
+            ),
+          ],
         ),
 
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(left: 5),
-                child: RobotoText(
-                  text: '$year',
-                  fontWeight: FontWeight.bold,
-                  fontSize: mobile ? 26 : 33,
-                  color: Color(0xFFD100D7),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 40),
-                child: AnimatedSize(
-                  duration: const Duration(milliseconds: 400),
-                  curve: Curves.easeInOutCubic,
-                  alignment: Alignment.topLeft,
-                  child: _expanded[year]!
-                      ? SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: [
-                              if (!mobile) const SizedBox(width: 150),
-                              ...albums!.map(
-                                (a) => Padding(
-                                  padding: const EdgeInsets.only(right: 20),
-                                  child: CollaborationWidget(collaboration: a),
-                                ),
-                              ),
-                            ],
+        Opacity(
+          opacity: opacity,
+          child: Padding(
+            padding: const EdgeInsets.only(top: 40, left: 16),
+            child: AnimatedSize(
+              duration: const Duration(milliseconds: 400),
+              curve: Curves.easeInOutCubic,
+              alignment: Alignment.topLeft,
+              child: _expanded[year]!
+                  ? SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          if (!mobile) const SizedBox(width: 150),
+                          ...albums!.map(
+                            (a) => Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: CollaborationWidget(collaboration: a),
+                            ),
                           ),
-                        )
-                      : const SizedBox(width: double.infinity, height: 0),
-                ),
-              ),
-            ],
+                        ],
+                      ),
+                    )
+                  : const SizedBox(width: double.infinity, height: 0),
+            ),
           ),
         ),
       ],

@@ -14,7 +14,12 @@ class CustomAppBarMobile extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.only(left: 20),
-            child: SvgPicture.asset('assets/logos/ruy_logo.svg', height: 65),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushReplacementNamed(context, '/');
+              },
+              child: SvgPicture.asset('assets/logos/ruy_logo.svg', height: 65),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(right: 20),

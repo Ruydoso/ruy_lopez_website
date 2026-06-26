@@ -8,7 +8,7 @@ class PressPageDesktop extends StatefulWidget {
 }
 
 class _PressPageDesktopState extends State<PressPageDesktop> {
-  bool reversed = false;
+  bool oldest = false;
 
   @override
   Widget build(BuildContext context) {
@@ -130,7 +130,7 @@ class _PressPageDesktopState extends State<PressPageDesktop> {
                                       cursor: SystemMouseCursors.click,
                                       child: GestureDetector(
                                         onTap: () => setState(() {
-                                          reversed = false;
+                                          oldest = false;
                                         }),
                                         child: AnimatedContainer(
                                           width: 104,
@@ -141,7 +141,7 @@ class _PressPageDesktopState extends State<PressPageDesktop> {
                                               topLeft: Radius.circular(16),
                                               bottomLeft: Radius.circular(16),
                                             ),
-                                            color: reversed
+                                            color: oldest
                                                 ? Colors.transparent
                                                 : Color(0xFFF7DAEF),
                                             border: BoxBorder.all(
@@ -157,7 +157,7 @@ class _PressPageDesktopState extends State<PressPageDesktop> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceEvenly,
                                               children: [
-                                                reversed
+                                                oldest
                                                     ? const SizedBox()
                                                     : Icon(
                                                         Icons.check,
@@ -180,7 +180,7 @@ class _PressPageDesktopState extends State<PressPageDesktop> {
                                       cursor: SystemMouseCursors.click,
                                       child: GestureDetector(
                                         onTap: () => setState(() {
-                                          reversed = true;
+                                          oldest = true;
                                         }),
                                         child: AnimatedContainer(
                                           width: 104,
@@ -191,7 +191,7 @@ class _PressPageDesktopState extends State<PressPageDesktop> {
                                               topRight: Radius.circular(16),
                                               bottomRight: Radius.circular(16),
                                             ),
-                                            color: reversed
+                                            color: oldest
                                                 ? Color(0xFFF7DAEF)
                                                 : Colors.transparent,
                                             border: BoxBorder.all(
@@ -207,7 +207,7 @@ class _PressPageDesktopState extends State<PressPageDesktop> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.spaceEvenly,
                                               children: [
-                                                reversed
+                                                oldest
                                                     ? Icon(
                                                         Icons.check,
                                                         color: Color(
@@ -239,7 +239,7 @@ class _PressPageDesktopState extends State<PressPageDesktop> {
                                 crossAxisSpacing: 20,
                                 mainAxisSpacing: 20,
                                 childAspectRatio: 0.75,
-                                children: (reversed ? _news.reversed : _news)
+                                children: (oldest ? _oldNews : _news)
                                     .map((e) => PressWidget(news: e))
                                     .toList(),
                               ),

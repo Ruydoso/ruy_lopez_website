@@ -14,10 +14,16 @@ class _AnimatedTextsState extends State<AnimatedTexts> {
 
   @override
   Widget build(BuildContext context) {
+    final heigth = MediaQuery.of(context).size.height;
+    double fraction = 0.4;
+    if (heigth < 450) {
+      fraction = 0.2;
+    }
+
     return VisibilityDetector(
       key: Key('${widget.texts.hashCode}'),
       onVisibilityChanged: (info) {
-        if (info.visibleFraction > 0.4) {
+        if (info.visibleFraction > fraction) {
           setState(() {
             visible = true;
           });

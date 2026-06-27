@@ -76,9 +76,10 @@ class FooterMobile extends StatelessWidget {
                     );
                   },
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 28,
-                      horizontal: 15,
+                    padding: const EdgeInsets.only(
+                      top: 28,
+                      bottom: 28,
+                      left: 30,
                     ),
                     child: Row(
                       children: [

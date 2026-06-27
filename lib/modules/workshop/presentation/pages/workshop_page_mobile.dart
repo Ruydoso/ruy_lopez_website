@@ -97,32 +97,11 @@ class _WorkshopPageMobileState extends State<WorkshopPageMobile> {
                                     'assets/icons/down_icon.svg',
                                   ),
                                 ),
-                                MouseRegion(
-                                  cursor: SystemMouseCursors.click,
-                                  child: GestureDetector(
-                                    onTap: () {
-                                      _scroolToTarget();
-                                    },
-                                    child: DecoratedBox(
-                                      decoration: BoxDecoration(
-                                        border: Border(
-                                          bottom: BorderSide(
-                                            color: Color(0xFFF0B3E7),
-                                            width: 2,
-                                          ),
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: EdgeInsets.only(bottom: 2),
-                                        child: RobotoText(
-                                          text: 'Workshops availables',
-                                          fontSize: 14,
-                                          fontWeight: FontWeight.bold,
-                                          color: Color(0xFFF0B3E7),
-                                        ),
-                                      ),
-                                    ),
-                                  ),
+                                TextLinkWidget(
+                                  onTap: () {
+                                    _scroolToTarget();
+                                  },
+                                  text: 'Workshops availables',
                                 ),
                               ],
                             ),
@@ -232,41 +211,15 @@ class _WorkshopPageMobileState extends State<WorkshopPageMobile> {
                                           Align(
                                             alignment:
                                                 AlignmentGeometry.centerRight,
-                                            child: MouseRegion(
-                                              cursor: SystemMouseCursors.click,
-                                              child: GestureDetector(
-                                                onTap: () {
-                                                  launchUrl(
-                                                    Uri.parse(
-                                                      'https://stanfordjazz.org/stanford-jazz-festival/',
-                                                    ),
-                                                  );
-                                                },
-                                                child: DecoratedBox(
-                                                  decoration: BoxDecoration(
-                                                    border: Border(
-                                                      bottom: BorderSide(
-                                                        color: Color(
-                                                          0xFFF0B3E7,
-                                                        ),
-                                                        width: 2,
-                                                      ),
-                                                    ),
+                                            child: TextLinkWidget(
+                                              onTap: () {
+                                                launchUrl(
+                                                  Uri.parse(
+                                                    'https://stanfordjazz.org/stanford-jazz-festival/',
                                                   ),
-                                                  child: Padding(
-                                                    padding: EdgeInsets.only(
-                                                      bottom: 2,
-                                                    ),
-                                                    child: RobotoText(
-                                                      text: 'See more about it',
-                                                      fontSize: 14,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: Color(0xFFF0B3E7),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ),
+                                                );
+                                              },
+                                              text: 'See more about it',
                                             ),
                                           ),
                                         ],

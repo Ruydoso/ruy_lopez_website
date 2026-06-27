@@ -55,7 +55,7 @@ class _RecordWidgetState extends State<RecordWidget> {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16),
               child: AnimatedCrossFade(
-                duration: Durations.medium2,
+                duration: Durations.short2,
                 crossFadeState: _isHovering
                     ? CrossFadeState.showSecond
                     : CrossFadeState.showFirst,

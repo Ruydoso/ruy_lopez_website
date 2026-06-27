@@ -70,7 +70,10 @@ class DiscographyPageMobile extends StatelessWidget {
                                     ],
                                   ),
                                 ),
-                                SeparatorsLines(),
+                                SeparatorsLines(
+                                  invertedColors: true,
+                                  invertedWidths: true,
+                                ),
                               ],
                             ),
                           ],

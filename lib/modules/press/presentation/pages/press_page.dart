@@ -28,16 +28,16 @@ final List<News> _news = [
     link:
         'https://www.granadahoy.com/ocio/virtuosismo-esencias-habana-critica-musica_0_2005149930.html',
   ),
-  News(
-    title: 'Harold López Nussa in Nueva Timba with Ruy Adrian López-Nussa.',
-    corpus:
-        'Blending the flavors of jazz with the Afro-Cuban influences of his upbringing, pianist Harold López-Nussa along with Luques Curtis, Ruy Adrian López-Nussa and Grégoire Maret are bringing their eclectic',
-    assetPath: 'assets/images/news/news3.webp',
-    date: '5 october 2025',
-    media: 'ENVISIONWISE',
-    link:
-        'https://envisionwise.com/local-events?_evDiscoveryPath=/event%2F3180055-harold-l-pez-nussa-in-nueva-timba-with-ruy-adrian-l-pez-nussa-luques-curtis-and-gr-goire-maret',
-  ),
+  // News(
+  //   title: 'Harold López Nussa in Nueva Timba with Ruy Adrian López-Nussa.',
+  //   corpus:
+  //       'Blending the flavors of jazz with the Afro-Cuban influences of his upbringing, pianist Harold López-Nussa along with Luques Curtis, Ruy Adrian López-Nussa and Grégoire Maret are bringing their eclectic',
+  //   assetPath: 'assets/images/news/news3.webp',
+  //   date: '5 october 2025',
+  //   media: 'ENVISIONWISE',
+  //   link:
+  //       'https://envisionwise.com/local-events?_evDiscoveryPath=/event%2F3180055-harold-l-pez-nussa-in-nueva-timba-with-ruy-adrian-l-pez-nussa-luques-curtis-and-gr-goire-maret',
+  // ),
   News(
     title: 'Harold López-Nussa “Nueva Timba”',
     corpus:

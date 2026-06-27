@@ -100,7 +100,7 @@ class BioPageDesktop extends StatelessWidget {
                         child: GrainyBackgroundScreen(
                           child: Column(
                             children: [
-                              SeparatorsLines(inverted: true),
+                              SeparatorsLines(invertedColors: true),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
                                   vertical: 70,
@@ -148,11 +148,24 @@ class BioPageDesktop extends StatelessWidget {
                                         width:
                                             MediaQuery.of(context).size.width *
                                             0.35,
-                                        child: Image(
-                                          image: AssetImage(
-                                            'assets/images/bio_image2_desktop.webp',
+                                        child: DecoratedBox(
+                                          decoration: BoxDecoration(
+                                            boxShadow: [
+                                              BoxShadow(
+                                                color: Colors.black.withValues(
+                                                  alpha: 0.5,
+                                                ),
+                                                offset: Offset(0, 10),
+                                                blurRadius: 30,
+                                              ),
+                                            ],
                                           ),
-                                          fit: BoxFit.cover,
+                                          child: Image(
+                                            image: AssetImage(
+                                              'assets/images/bio_image2_desktop.webp',
+                                            ),
+                                            fit: BoxFit.cover,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -165,48 +178,40 @@ class BioPageDesktop extends StatelessWidget {
                       ),
                       Stack(
                         children: [
-                          const SizedBox(height: 1120),
                           Positioned(
                             left: 0,
-                            height: 700,
+                            bottom: MediaQuery.of(context).size.width * 0.25,
                             child: Image(
                               image: AssetImage(
                                 'assets/effects/purple_grainy_effect_l.webp',
                               ),
                               fit: BoxFit.cover,
-                              colorBlendMode: BlendMode.multiply,
                             ),
                           ),
                           Positioned(
                             right: 0,
-                            height: 700,
+                            bottom: MediaQuery.of(context).size.width * 0.25,
                             child: Image(
                               image: AssetImage(
                                 'assets/effects/purple_grainy_effect_r.webp',
                               ),
                               fit: BoxFit.cover,
-                              colorBlendMode: BlendMode.multiply,
                             ),
                           ),
                           Positioned(
-                            bottom: 0,
-                            left: 0,
+                            bottom: 12,
                             right: 0,
-                            child: ConstrainedBox(
-                              constraints: BoxConstraints(maxHeight: 580),
-                              child: SizedBox(
-                                width: double.infinity,
-                                child: Image(
-                                  image: AssetImage(
-                                    'assets/images/bio_image3_desktop.webp',
-                                  ),
-                                  fit: BoxFit.cover,
-                                ),
+                            left: 0,
+                            child: Image(
+                              image: AssetImage(
+                                'assets/images/bio_image3_desktop.png',
                               ),
+                              fit: BoxFit.cover,
                             ),
                           ),
+
                           Positioned(
-                            bottom: 0,
+                            bottom: -5,
                             right: 0,
                             left: 0,
                             height: 17,
@@ -301,43 +306,16 @@ class BioPageDesktop extends StatelessWidget {
                                                 ),
                                                 const SizedBox(height: 30),
                                                 Center(
-                                                  child: MouseRegion(
-                                                    cursor: SystemMouseCursors
-                                                        .click,
-                                                    child: GestureDetector(
-                                                      onTap: () {
-                                                        launchUrl(
-                                                          Uri.parse(
-                                                            'https://drive.google.com/file/d/1VG9HrD0inmlhM1MKwL1aJis0nMNi9L7N/view?usp=drivesdk',
-                                                          ),
-                                                        );
-                                                      },
-                                                      child: Container(
-                                                        decoration: BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius.circular(
-                                                                18,
-                                                              ),
-                                                          border: BoxBorder.all(
-                                                            color: CustomColors
-                                                                .textLightPinkColor,
-                                                            width: 2.0,
-                                                          ),
+                                                  child: CustomTextButton(
+                                                    width: 150,
+                                                    text: 'Download dossier',
+                                                    onTap: () {
+                                                      launchUrl(
+                                                        Uri.parse(
+                                                          'https://drive.google.com/file/d/1VG9HrD0inmlhM1MKwL1aJis0nMNi9L7N/view?usp=drivesdk',
                                                         ),
-                                                        width: 150,
-                                                        height: 50,
-                                                        child: Center(
-                                                          child: RobotoText(
-                                                            text:
-                                                                'Download dossier',
-                                                            fontSize: 16,
-                                                            color: CustomColors
-                                                                .textLightPinkColor,
-                                                            letterSpacing: 0,
-                                                          ),
-                                                        ),
-                                                      ),
-                                                    ),
+                                                      );
+                                                    },
                                                   ),
                                                 ),
                                               ],
@@ -346,23 +324,12 @@ class BioPageDesktop extends StatelessWidget {
                                         ],
                                       ),
                                     ),
+                                    SizedBox(
+                                      height:
+                                          MediaQuery.of(context).size.width *
+                                          0.35,
+                                    ),
                                   ],
-                                ),
-                              ),
-                              DecoratedBox(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    colors: [
-                                      Colors.black.withValues(alpha: 0.5),
-                                      Colors.transparent,
-                                    ],
-                                    begin: AlignmentGeometry.topCenter,
-                                    end: AlignmentGeometry.bottomCenter,
-                                  ),
-                                ),
-                                child: SizedBox(
-                                  height: 150,
-                                  width: double.infinity,
                                 ),
                               ),
                             ],

@@ -4,6 +4,7 @@ export 'widgets/grainy_screen_decoration/purple_grainy_screen_decoration.dart';
 export 'widgets/footer/footer.dart';
 export 'widgets/drawer/custom_drawer.dart';
 export 'widgets/separators_lines.dart';
+export 'widgets/custom_text_button.dart';
 export 'texts/animated_texts.dart';
 export 'texts/custom_texts.dart';
 export 'themes/colors.dart';

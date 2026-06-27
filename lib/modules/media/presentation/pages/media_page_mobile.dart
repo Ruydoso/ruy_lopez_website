@@ -1,7 +1,35 @@
 part of 'media_page.dart';
 
-class MediaPageMobile extends StatelessWidget {
-  const MediaPageMobile({super.key});
+class MediaPageMobile extends StatefulWidget {
+  final bool goToMovies;
+  const MediaPageMobile({super.key, this.goToMovies = false});
+
+  @override
+  State<MediaPageMobile> createState() => _MediaPageMobileState();
+}
+
+class _MediaPageMobileState extends State<MediaPageMobile> {
+  final GlobalKey _key = GlobalKey();
+
+  void _scrollToMovies() {
+    if (_key.currentContext != null) {
+      Scrollable.ensureVisible(
+        _key.currentContext!,
+        duration: const Duration(seconds: 1),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.goToMovies) {
+      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+        _scrollToMovies();
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,6 +78,7 @@ class MediaPageMobile extends StatelessWidget {
                     ],
                   ),
                   SizedBox(
+                    key: _key,
                     width: double.infinity,
                     child: DecoratedBox(
                       decoration: BoxDecoration(

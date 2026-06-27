@@ -106,21 +106,21 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
         isCollaborationSectionVisible = true;
       });
       Future.delayed(
-        Duration(milliseconds: 350),
+        Duration(milliseconds: 1000),
         () => setState(() {
           opacity = 0.5;
           _expanded[2025] = true;
         }),
       );
       Future.delayed(
-        Duration(milliseconds: 1000),
+        Duration(milliseconds: 1700),
         () => setState(() {
           opacity = 0.7;
           _expanded[2020] = true;
         }),
       );
       Future.delayed(
-        Duration(milliseconds: 1400),
+        Duration(milliseconds: 2000),
         () => setState(() {
           opacity = 1;
           _expanded[2015] = true;
@@ -358,7 +358,6 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
   }
 
   Widget _buildTimeLineSection(int year, bool mobile, double opacity) {
-    print(opacity);
     final albums = collaborations[year];
 
     return Column(

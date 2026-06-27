@@ -1,14 +1,8 @@
 part of 'home_page.dart';
 
-class HomePageDesktop extends StatefulWidget {
+class HomePageDesktop extends StatelessWidget {
   const HomePageDesktop({super.key});
 
-  @override
-  State<HomePageDesktop> createState() => _HomePageDesktopState();
-}
-
-class _HomePageDesktopState extends State<HomePageDesktop> {
-  bool hoveringSeeMoreButton = false;
   @override
   Widget build(BuildContext context) {
     final baseTextStyle = TextStyle(
@@ -116,7 +110,7 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                                           ),
                                           TextSpan(
                                             text:
-                                                "IV SGAE 'Tete Montoliu' Jazz Composition Competition in 2021\n\n",
+                                                "IV SGAE 'Tete Montoliu' Jazz Composition Competition\n\n",
                                             style: baseTextStyle.copyWith(
                                               fontStyle: FontStyle.italic,
                                               fontWeight: FontWeight.w300,
@@ -135,54 +129,11 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                                     const SizedBox(height: 40),
                                     Align(
                                       alignment: AlignmentGeometry.centerRight,
-                                      child: MouseRegion(
-                                        onEnter: (event) => setState(
-                                          () => hoveringSeeMoreButton = true,
-                                        ),
-                                        onExit: (event) => setState(
-                                          () => hoveringSeeMoreButton = false,
-                                        ),
-                                        cursor: SystemMouseCursors.click,
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            Navigator.pushNamed(
-                                              context,
-                                              '/bio',
-                                            );
-                                          },
-                                          child: Container(
-                                            decoration: BoxDecoration(
-                                              color: hoveringSeeMoreButton
-                                                  ? CustomColors
-                                                        .textLightPinkColor
-                                                  : Colors.transparent,
-                                              borderRadius:
-                                                  BorderRadius.circular(18),
-                                              border: BoxBorder.all(
-                                                color: CustomColors
-                                                    .textLightPinkColor,
-                                                width: 2.0,
-                                              ),
-                                            ),
-                                            width: 120,
-                                            height: 56,
-                                            child: Center(
-                                              child: RobotoText(
-                                                text: 'See More',
-                                                fontSize: 16,
-                                                fontWeight:
-                                                    hoveringSeeMoreButton
-                                                    ? FontWeight.w600
-                                                    : FontWeight.w500,
-                                                color: hoveringSeeMoreButton
-                                                    ? Color(0xFF330833)
-                                                    : CustomColors
-                                                          .textLightPinkColor,
-                                                letterSpacing: 0,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
+                                      child: CustomTextButton(
+                                        text: 'See More',
+                                        onTap: () {
+                                          Navigator.pushNamed(context, '/bio');
+                                        },
                                       ),
                                     ),
                                   ],

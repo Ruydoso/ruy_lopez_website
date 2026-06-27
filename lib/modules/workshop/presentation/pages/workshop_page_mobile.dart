@@ -77,7 +77,7 @@ class _WorkshopPageMobileState extends State<WorkshopPageMobile> {
                                 height: 1.42,
                                 letterSpacing: 0.25,
                                 text:
-                                    'In addition to his performance career, Ruy Adrián López-Nussa is a highly sought-after educator who leads numerous workshops and masterclasses. Each year, his sessions captivate music enthusiasts—especially drummers.\n\nNotable highlights among his educational projects include the Stanford Jazz Festival and the specialized Cuban music workshops he co-hosts alongside his older brother, Harold López-Nussa.',
+                                    'In addition to his performance career, Ruy Adrián López-Nussa is a highly sought-after educator who leads numerous workshops and masterclasses. Each year, his sessions captivate music enthusiasts especially drummers.\n\nNotable highlights among his educational projects include the Stanford Jazz Festival and the specialized Cuban music workshops he co-hosts alongside his older brother, Harold López-Nussa.',
                               ),
                             ),
                             const SizedBox(height: 40),

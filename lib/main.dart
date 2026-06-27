@@ -19,9 +19,19 @@ class RuyLopezWebsite extends StatelessWidget {
       title: 'Ruy Adrián López-Nussa',
       initialRoute: '/',
       debugShowCheckedModeBanner: false,
+      onGenerateRoute: (settings) {
+        if (settings.name == MediaPage.route) {
+          bool goToMovies = false;
+          if (settings.arguments != null) {
+            goToMovies = true;
+          }
+          return MaterialPageRoute(
+            builder: (context) => MediaPage(goToMovies: goToMovies),
+          );
+        }
+      },
       routes: {
         HomePage.route: (context) => HomePage(),
-        MediaPage.route: (context) => MediaPage(),
         WorkshopPage.route: (context) => WorkshopPage(),
         BioPage.route: (context) => BioPage(),
         PressPage.route: (context) => PressPage(),

@@ -51,8 +51,10 @@ class DiscographyPageDesktop extends StatelessWidget {
                           colorBlendMode: BlendMode.multiply,
                         ),
                       ),
-                      SeparatorsLines(inverted: true),
-
+                      SeparatorsLines(
+                        invertedColors: true,
+                        invertedWidths: true,
+                      ),
                       Padding(
                         padding: EdgeInsets.only(
                           left: MediaQuery.of(context).size.width * 0.05,

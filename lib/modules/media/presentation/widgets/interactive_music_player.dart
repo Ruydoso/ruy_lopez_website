@@ -29,7 +29,7 @@ class _InteractiveMusicPlayerState extends State<InteractiveMusicPlayer> {
   final AudioPlayer _audioPlayer = AudioPlayer();
   late List<double> barHeights;
 
-  int _currentIndex = 0;
+  int _currentIndex = -1;
   bool _isPlaying = false;
 
   Duration _duration = Duration.zero;
@@ -161,6 +161,11 @@ class _InteractiveMusicPlayerState extends State<InteractiveMusicPlayer> {
       await _audioPlayer.pause();
       setState(() => _isPlaying = false);
     } else {
+      if (_currentIndex == -1) {
+        setState(() {
+          _currentIndex = 0;
+        });
+      }
       await _audioPlayer.play(AssetSource(_playlist[_currentIndex].assetPath));
       setState(() => _isPlaying = true);
     }
@@ -229,32 +234,45 @@ class _InteractiveMusicPlayerState extends State<InteractiveMusicPlayer> {
                 const SizedBox(width: 20),
 
                 Expanded(
-                  child: SizedBox(
-                    height: 80,
-                    child: LayoutBuilder(
-                      builder: (context, constraints) {
-                        final width = MediaQuery.of(context).size.width;
-                        return GestureDetector(
-                          onTapDown: (details) {
-                            _seekToPosition(
-                              details.localPosition.dx,
-                              constraints.maxWidth,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      SizedBox(
+                        height: 80,
+                        child: LayoutBuilder(
+                          builder: (context, constraints) {
+                            final width = MediaQuery.of(context).size.width;
+                            return GestureDetector(
+                              onTapDown: (details) {
+                                _seekToPosition(
+                                  details.localPosition.dx,
+                                  constraints.maxWidth,
+                                );
+                              },
+                              onHorizontalDragUpdate: (details) {
+                                _seekToPosition(
+                                  details.localPosition.dx,
+                                  constraints.maxWidth,
+                                );
+                              },
+                              child: _buildInteractiveWaveform(
+                                Colors.black,
+                                constraints.maxWidth,
+                                width < mobileBreakPoint
+                                    ? width ~/ 5
+                                    : width ~/ 12,
+                              ),
                             );
                           },
-                          onHorizontalDragUpdate: (details) {
-                            _seekToPosition(
-                              details.localPosition.dx,
-                              constraints.maxWidth,
-                            );
-                          },
-                          child: _buildInteractiveWaveform(
-                            Colors.black,
-                            constraints.maxWidth,
-                            width < mobileBreakPoint ? width ~/ 5 : width ~/ 12,
-                          ),
-                        );
-                      },
-                    ),
+                        ),
+                      ),
+                      RobotoText(
+                        text:
+                            '${(_position.inSeconds ~/ 60).toString().padLeft(2, '0')}:${(_position.inSeconds % 60).toString().padLeft(2, '0')}',
+                        fontSize: 10,
+                        color: Colors.black87,
+                      ),
+                    ],
                   ),
                 ),
               ],

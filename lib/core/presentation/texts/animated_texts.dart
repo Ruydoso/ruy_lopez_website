@@ -16,7 +16,7 @@ class _AnimatedTextsState extends State<AnimatedTexts> {
   Widget build(BuildContext context) {
     final heigth = MediaQuery.of(context).size.height;
     double fraction = 0.4;
-    if (heigth < 450) {
+    if (heigth < 350) {
       fraction = 0.2;
     }
 

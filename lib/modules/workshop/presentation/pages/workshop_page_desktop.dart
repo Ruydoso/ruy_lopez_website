@@ -81,7 +81,7 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                               ),
                               child: RobotoText(
                                 text:
-                                    'In addition to his performance career, Ruy Adrián López-Nussa is a highly sought-after educator who leads numerous workshops and masterclasses. Each year, his sessions captivate music enthusiasts—especially drummers.\n\nNotable highlights among his educational projects include the Stanford Jazz Festival and the specialized Cuban music workshops he co-hosts alongside his older brother, Harold López-Nussa.',
+                                    'In addition to his performance career, Ruy Adrián López-Nussa is a highly sought-after educator who leads numerous workshops and masterclasses. Each year, his sessions captivate music enthusiasts especially drummers.\n\nNotable highlights among his educational projects include the Stanford Jazz Festival and the specialized Cuban music workshops he co-hosts alongside his older brother, Harold López-Nussa.',
                                 fontWeight: FontWeight.w400,
                                 textAlign: TextAlign.start,
                                 letterSpacing: 0,
@@ -224,7 +224,8 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                                                 text:
                                                     'Last workshop of Ruy Adrián and Harold López Nussa for the people interested in the cuban music.',
                                                 fontSize: 16,
-                                                fontWeight: FontWeight.w300,
+                                                height: 1.40,
+                                                fontWeight: FontWeight.w400,
                                                 textAlign: TextAlign.start,
                                               ),
                                             ],
@@ -251,7 +252,8 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                                                 text:
                                                     'Each summer, the Stanford Jazz Festival presents weeks of world-class performances. The same artists who teach in the program take the stage at night, creating a one-of-a-kind environment where audiences and students experience jazz at its highest level. Ruy Adrián participated in the year 2018.',
                                                 fontSize: 16,
-                                                fontWeight: FontWeight.w300,
+                                                height: 1.40,
+                                                fontWeight: FontWeight.w400,
                                                 textAlign: TextAlign.start,
                                               ),
                                               const SizedBox(height: 8),

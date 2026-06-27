@@ -37,7 +37,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
             cursor: SystemMouseCursors.click,
             child: GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, e.$2);
+                Navigator.pushNamed(context, e.$2, arguments: true);
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(16),

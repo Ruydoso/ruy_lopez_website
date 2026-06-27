@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ruy_lopez_website/core/presentation/presentation.dart';
+import 'package:ruy_lopez_website/core/utils/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../domain/collaboration.dart';
@@ -29,7 +30,18 @@ class _CollaborationWidgetState extends State<CollaborationWidget> {
           child: ClipRRect(
             borderRadius: BorderRadius.circular(4),
             child: GestureDetector(
-              onTap: () => launchUrl(Uri.parse(widget.collaboration.link)),
+              onTap: () async {
+                if (MediaQuery.of(context).size.width < mobileBreakPoint) {
+                  setState(() {
+                    _isHovering = true;
+                  });
+                  await Future.delayed(Durations.short2);
+                }
+                launchUrl(Uri.parse(widget.collaboration.link));
+                setState(() {
+                  _isHovering = false;
+                });
+              },
               child: SizedBox(
                 width: 160,
                 height: 160,

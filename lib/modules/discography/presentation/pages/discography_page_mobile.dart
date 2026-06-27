@@ -40,33 +40,38 @@ class DiscographyPageMobile extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 30,
-                              ),
-                              child: Column(
-                                children: [
-                                  const SizedBox(height: 60),
-                                  Align(
-                                    alignment: AlignmentGeometry.centerLeft,
-                                    child: StaatlichesText(
-                                      text: 'DISCOGRAPHY',
-                                      fontSize: 57,
-                                    ),
+                            Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 30,
                                   ),
-                                  ...records.entries.map(
-                                    (r) => Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                        vertical: 30,
+                                  child: Column(
+                                    children: [
+                                      const SizedBox(height: 60),
+                                      Align(
+                                        alignment: AlignmentGeometry.centerLeft,
+                                        child: StaatlichesText(
+                                          text: 'DISCOGRAPHY',
+                                          fontSize: 57,
+                                        ),
                                       ),
-                                      child: RecordWidget(
-                                        record: r.key,
-                                        hover: r.value,
+                                      ...records.entries.map(
+                                        (r) => Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                            vertical: 30,
+                                          ),
+                                          child: RecordWidget(
+                                            record: r.key,
+                                            hover: r.value,
+                                          ),
+                                        ),
                                       ),
-                                    ),
+                                    ],
                                   ),
-                                ],
-                              ),
+                                ),
+                                SeparatorsLines(),
+                              ],
                             ),
                           ],
                         ),

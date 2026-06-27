@@ -75,12 +75,19 @@ class HoverRecordWidget extends StatelessWidget {
 class _RecordWidgetPainter extends CustomPainter {
   final String year;
   final bool overlayCover;
+  final Color color;
 
-  _RecordWidgetPainter({required this.year, this.overlayCover = false});
+  _RecordWidgetPainter({
+    required this.year,
+    this.overlayCover = false,
+    this.color = const Color(0xFFF213F8),
+  });
 
   @override
   void paint(Canvas canvas, Size size) {
-    final center = size.center(Offset(0, -size.height * 0.15));
+    final center = size.center(
+      Offset(0, overlayCover ? -size.height * 0.07 : -size.height * 0.15),
+    );
     final centerPaint = Paint()..color = Color(0xFF4B4739);
     final centerFillPaint = Paint()..color = Color(0xFFFFD7F7);
     final innerCirclePaint = Paint()
@@ -94,7 +101,7 @@ class _RecordWidgetPainter extends CustomPainter {
 
     final rrectPaint = Paint()
       ..blendMode = BlendMode.overlay
-      ..color = Color(0xFFF213F8);
+      ..color = overlayCover ? Color(0x7AE412E7) : color;
 
     final rrect = RRect.fromRectAndRadius(
       Rect.fromCenter(
@@ -121,17 +128,30 @@ class _RecordWidgetPainter extends CustomPainter {
       textAlign: TextAlign.center,
     );
 
-    canvas.drawCircle(center, (size.width * 0.25) - 7, centerFillPaint);
-    canvas.drawCircle(center, size.width * 0.035, centerPaint);
-    canvas.drawCircle(center, size.width * 0.25, innerCirclePaint);
-    canvas.drawCircle(center, size.width * 0.32, outerCirclePaint);
-    canvas.drawRRect(rrect, rrectPaint);
+    if (overlayCover) {
+      canvas.drawCircle(center, size.width * 0.25, innerCirclePaint);
+      canvas.drawCircle(center, size.width * 0.32, outerCirclePaint);
+      canvas.drawRRect(rrect, rrectPaint);
+      canvas.drawCircle(center, (size.width * 0.25) - 7, centerFillPaint);
+      canvas.drawCircle(center, size.width * 0.035, centerPaint);
+      textPainter.layout(minWidth: 0, maxWidth: size.width * 0.22);
+      textPainter.paint(
+        canvas,
+        center.translate(-textPainter.size.width / 2, size.width * 0.08),
+      );
+    } else {
+      canvas.drawCircle(center, (size.width * 0.25) - 7, centerFillPaint);
+      canvas.drawCircle(center, size.width * 0.035, centerPaint);
+      canvas.drawCircle(center, size.width * 0.25, innerCirclePaint);
+      canvas.drawCircle(center, size.width * 0.32, outerCirclePaint);
+      canvas.drawRRect(rrect, rrectPaint);
 
-    textPainter.layout(minWidth: 0, maxWidth: size.width * 0.22);
-    textPainter.paint(
-      canvas,
-      center.translate(-textPainter.size.width / 2, size.width * 0.08),
-    );
+      textPainter.layout(minWidth: 0, maxWidth: size.width * 0.22);
+      textPainter.paint(
+        canvas,
+        center.translate(-textPainter.size.width / 2, size.width * 0.08),
+      );
+    }
   }
 
   @override

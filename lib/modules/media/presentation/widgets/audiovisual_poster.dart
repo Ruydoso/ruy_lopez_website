@@ -40,7 +40,7 @@ class _AudiovisualPosterState extends State<AudiovisualPoster> {
       child: VisibilityDetector(
         key: Key(widget.url),
         onVisibilityChanged: (info) {
-          if (width < mobileBreakPoint) {
+          if (screenWidth < mobileBreakPoint) {
             if (info.visibleFraction > 0.8) {
               setState(() {
                 isHovering = true;

@@ -1,7 +1,35 @@
 part of 'media_page.dart';
 
-class MediaPageDesktop extends StatelessWidget {
-  const MediaPageDesktop({super.key});
+class MediaPageDesktop extends StatefulWidget {
+  final bool goToMovies;
+  const MediaPageDesktop({super.key, this.goToMovies = false});
+
+  @override
+  State<MediaPageDesktop> createState() => _MediaPageDesktopState();
+}
+
+class _MediaPageDesktopState extends State<MediaPageDesktop> {
+  final GlobalKey _key = GlobalKey();
+
+  void _scrollToMovies() {
+    if (_key.currentContext != null) {
+      Scrollable.ensureVisible(
+        _key.currentContext!,
+        duration: const Duration(seconds: 1),
+        curve: Curves.easeInOut,
+      );
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.goToMovies) {
+      WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+        _scrollToMovies();
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +89,7 @@ class MediaPageDesktop extends StatelessWidget {
                       ),
                     ),
                     child: PurpleGrainyScreenDecoration(
+                      key: _key,
                       height: 1400,
                       child: Column(
                         children: [

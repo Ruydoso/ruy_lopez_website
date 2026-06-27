@@ -9,15 +9,16 @@ part 'media_page_mobile.dart';
 
 class MediaPage extends StatelessWidget {
   static const route = '/media';
+  final bool goToMovies;
 
-  const MediaPage({super.key});
+  const MediaPage({super.key, this.goToMovies = false});
 
   @override
   Widget build(BuildContext context) {
     if (MediaQuery.of(context).size.width < mobileBreakPoint) {
-      return MediaPageMobile();
+      return MediaPageMobile(goToMovies: goToMovies);
     } else {
-      return MediaPageDesktop();
+      return MediaPageDesktop(goToMovies: goToMovies);
     }
   }
 }

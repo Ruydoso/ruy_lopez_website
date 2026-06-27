@@ -135,7 +135,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                           ),
                                           TextSpan(
                                             text:
-                                                "IV SGAE 'Tete Montoliu' Jazz Composition Competition in 2021\n\n",
+                                                "IV SGAE 'Tete Montoliu' Jazz Composition Competition\n\n",
                                             style: baseTextStyle.copyWith(
                                               fontStyle: FontStyle.italic,
                                               fontWeight: FontWeight.w300,
@@ -156,36 +156,11 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                 const SizedBox(height: 20),
                                 Align(
                                   alignment: AlignmentGeometry.centerRight,
-                                  child: MouseRegion(
-                                    cursor: SystemMouseCursors.click,
-                                    child: GestureDetector(
-                                      onTap: () {
-                                        Navigator.pushNamed(context, '/bio');
-                                      },
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(
-                                            18,
-                                          ),
-                                          border: BoxBorder.all(
-                                            color:
-                                                CustomColors.textLightPinkColor,
-                                            width: 2.0,
-                                          ),
-                                        ),
-                                        width: 120,
-                                        height: 56,
-                                        child: Center(
-                                          child: RobotoText(
-                                            text: 'See More',
-                                            fontSize: 16,
-                                            color:
-                                                CustomColors.textLightPinkColor,
-                                            letterSpacing: 0,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
+                                  child: CustomTextButton(
+                                    text: 'See More',
+                                    onTap: () {
+                                      Navigator.pushNamed(context, '/bio');
+                                    },
                                   ),
                                 ),
                               ],

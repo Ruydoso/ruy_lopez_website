@@ -26,7 +26,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
       endDrawer: CustomDrawer(selectedRoute: HomePage.route),
       body: Column(
         children: [
-          CustomAppBar(),
+          FadeInFromTop(child: CustomAppBar()),
           Expanded(
             child: SingleChildScrollView(
               child: Column(

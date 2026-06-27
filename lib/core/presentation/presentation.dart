@@ -7,4 +7,6 @@ export 'widgets/separators_lines.dart';
 export 'widgets/custom_text_button.dart';
 export 'texts/animated_texts.dart';
 export 'texts/custom_texts.dart';
+export 'widgets/text_link_widget.dart';
+export 'animations/fadein_fromtop.dart';
 export 'themes/colors.dart';

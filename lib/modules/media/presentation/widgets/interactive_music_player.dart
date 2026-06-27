@@ -377,6 +377,7 @@ class _TrackListElementState extends State<_TrackListElement> {
             : [],
       ),
       decoration: BoxDecoration(
+        color: Color(0xFFF7EBF1),
         boxShadow: isHovering
             ? [
                 BoxShadow(

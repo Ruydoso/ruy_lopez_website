@@ -21,9 +21,14 @@ class CustomAppBarDesktop extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              SvgPicture.asset(
-                'assets/logos/ruy_logo.svg',
-                width: width < tabletBreakPoint ? 220 : 400,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, '/');
+                },
+                child: SvgPicture.asset(
+                  'assets/logos/ruy_logo.svg',
+                  width: width < tabletBreakPoint ? 220 : 400,
+                ),
               ),
               SizedBox(width: width < tabletBreakPoint ? 20 : 0),
               Expanded(

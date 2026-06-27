@@ -1,8 +1,14 @@
 part of 'home_page.dart';
 
-class HomePageDesktop extends StatelessWidget {
+class HomePageDesktop extends StatefulWidget {
   const HomePageDesktop({super.key});
 
+  @override
+  State<HomePageDesktop> createState() => _HomePageDesktopState();
+}
+
+class _HomePageDesktopState extends State<HomePageDesktop> {
+  bool _firstSectionVisible = false;
   @override
   Widget build(BuildContext context) {
     final baseTextStyle = TextStyle(
@@ -15,18 +21,47 @@ class HomePageDesktop extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          CustomAppBar(),
+          FadeInFromTop(child: CustomAppBar()),
           Expanded(
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  SizedBox(
-                    width: double.infinity,
-                    child: Image(
-                      image: AssetImage(
-                        'assets/images/home_image1_desktop.webp',
-                      ),
-                      fit: BoxFit.cover,
+                  VisibilityDetector(
+                    key: Key('home_first_section_desktop'),
+                    onVisibilityChanged: (info) {
+                      if (info.visibleFraction > 0.6) {
+                        setState(() {
+                          _firstSectionVisible = true;
+                        });
+                      }
+                    },
+                    child: Stack(
+                      children: [
+                        SizedBox(
+                          width: double.infinity,
+                          child: Image(
+                            image: AssetImage(
+                              'assets/images/home_image1_back_desktop.webp',
+                            ),
+                            fit: BoxFit.cover,
+                          ),
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          right: 0,
+                          left: 0,
+                          child: AnimatedOpacity(
+                            opacity: _firstSectionVisible ? 1.0 : 0.0,
+                            duration: Durations.long4,
+                            child: Image(
+                              image: AssetImage(
+                                'assets/images/home_image1_top_desktop.png',
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   DecoratedBox(

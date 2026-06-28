@@ -405,6 +405,7 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
+                          const SizedBox(width: 3),
                           if (!mobile) const SizedBox(width: 150),
                           ...albums!.map(
                             (a) => Padding(

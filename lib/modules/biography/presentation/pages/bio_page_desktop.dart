@@ -198,30 +198,6 @@ class BioPageDesktop extends StatelessWidget {
                               fit: BoxFit.cover,
                             ),
                           ),
-                          Positioned(
-                            bottom: 12,
-                            right: 0,
-                            left: 0,
-                            child: Image(
-                              image: AssetImage(
-                                'assets/images/bio_image3_desktop.png',
-                              ),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-
-                          Positioned(
-                            bottom: -5,
-                            right: 0,
-                            left: 0,
-                            height: 17,
-                            child: Image(
-                              image: AssetImage(
-                                'assets/effects/grainy_purple_line_effect.webp',
-                              ),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
                           Column(
                             children: [
                               DecoratedBox(
@@ -333,6 +309,31 @@ class BioPageDesktop extends StatelessWidget {
                                 ),
                               ),
                             ],
+                          ),
+
+                          Positioned(
+                            bottom: 0,
+                            right: 0,
+                            left: 0,
+                            child: Image(
+                              image: AssetImage(
+                                'assets/images/bio_image3_desktop.png',
+                              ),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+
+                          Positioned(
+                            bottom: -5,
+                            right: 0,
+                            left: 0,
+                            height: 17,
+                            child: Image(
+                              image: AssetImage(
+                                'assets/effects/grainy_purple_line_effect.webp',
+                              ),
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ],
                       ),

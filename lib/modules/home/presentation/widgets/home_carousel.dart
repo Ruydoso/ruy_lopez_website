@@ -107,7 +107,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
                     padding: const EdgeInsets.all(12.0),
                     child: RobotoText(
                       text: e.$2,
-                      fontSize: 36,
+                      fontSize: width < mobileBreakPoint ? 16 : 36,
                       color: Color(0xFA544151),
                     ),
                   ),

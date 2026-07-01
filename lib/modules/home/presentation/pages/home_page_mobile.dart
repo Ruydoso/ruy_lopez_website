@@ -173,8 +173,9 @@ class _HomePageMobileState extends State<HomePageMobile> {
                           text: 'RECENT PROJECTS',
                           fontSize: 32,
                           color: Color(0xFF330833),
+                          fontWeight: FontWeight.w400,
                         ),
-                        const SizedBox(height: 30),
+                        const SizedBox(height: 40),
                         HomeCarousel(),
                         SizedBox(
                           width: double.infinity,

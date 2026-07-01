@@ -72,7 +72,7 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                           Color(0xFF696967),
                           Color(0xFF1D1D1B),
                         ],
-                        stops: [0.0, 0.2, 1.0],
+                        stops: [0.0, 0.7, 1.0],
                         begin: AlignmentGeometry.topCenter,
                         end: AlignmentGeometry.bottomCenter,
                       ),
@@ -183,8 +183,9 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                             children: [
                               SeparatorsLines(),
                               Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 50,
+                                padding: const EdgeInsets.only(
+                                  top: 80,
+                                  bottom: 72,
                                 ),
                                 child: Column(
                                   children: [
@@ -192,12 +193,13 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                                       text: 'RECENT PROJECTS',
                                       fontSize: 45,
                                       color: Color(0xFF330833),
+                                      fontWeight: FontWeight.w400,
                                     ),
-                                    const SizedBox(height: 40),
-                                    HomeCarousel(),
                                   ],
                                 ),
                               ),
+                              HomeCarousel(),
+                              const SizedBox(height: 80),
                             ],
                           ),
                         ),

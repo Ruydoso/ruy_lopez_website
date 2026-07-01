@@ -69,6 +69,7 @@ flutter:
     - assets/images/news/
     - assets/images/records/
     - assets/images/collaborations/
+    - assets/images/videos/
     - assets/logos/
     - assets/effects/
     - assets/audio/
@@ -121,5 +122,10 @@ flutter:
       fonts:
         - asset: assets/fonts/staatliches/Staatliches-Regular.ttf
           weight: 400
+    
+    - family: bebasneue
+      fonts:
+        - asset: assets/fonts/bebasneue/BebasNeue-Bold.ttf
+          weight: 700
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

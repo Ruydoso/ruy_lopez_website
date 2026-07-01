@@ -167,13 +167,29 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                               child: Column(
                                 children: [
                                   Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 50,
+                                    padding: const EdgeInsets.only(
+                                      top: 80,
+                                      bottom: 72,
                                     ),
                                     child: RobotoText(
                                       text: 'REFERENCES',
                                       fontSize: 45,
                                       color: CustomColors.darkPurpleAppColor,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsGeometry.only(
+                                      bottom: 80,
+                                    ),
+                                    child: Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceEvenly,
+                                      children: [
+                                        ...videos.map(
+                                          (v) => VideoLinkWidget(video: v),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                   SizedBox(
@@ -319,6 +335,7 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                                         text: 'CUBAN WORKSHOP AVAILABLES',
                                         color: CustomColors.darkPurpleAppColor,
                                         fontSize: 45,
+                                        fontWeight: FontWeight.w400,
                                       ),
                                     ),
                                     SizedBox(

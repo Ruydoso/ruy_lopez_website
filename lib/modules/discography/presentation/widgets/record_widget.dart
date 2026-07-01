@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ruy_lopez_website/core/utils/breakpoints.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:visibility_detector/visibility_detector.dart';
 
 import '../../domain/records.dart';
 
@@ -29,48 +28,48 @@ class _RecordWidgetState extends State<RecordWidget> {
         _isHovering = false;
       }),
       cursor: SystemMouseCursors.click,
-      child: VisibilityDetector(
-        key: Key(widget.record.link),
-        onVisibilityChanged: (info) {
+      child: GestureDetector(
+        onTap: () {
           if (width < mobileBreakPoint) {
-            if (info.visibleFraction > 0.8) {
+            if (_isHovering == true) {
+              launchUrl(Uri.parse(widget.record.link));
+            } else {
               setState(() {
                 _isHovering = true;
               });
-            } else {
-              setState(() {
-                _isHovering = false;
-              });
+              Future.delayed(
+                Duration(seconds: 5),
+                () => setState(() {
+                  _isHovering = false;
+                }),
+              );
             }
+          } else {
+            launchUrl(Uri.parse(widget.record.link));
           }
         },
-        child: GestureDetector(
-          onTap: () {
-            launchUrl(Uri.parse(widget.record.link));
-          },
-          child: Container(
-            width: size,
-            height: size,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(16),
-              child: AnimatedCrossFade(
-                duration: Durations.short2,
-                crossFadeState: _isHovering
-                    ? CrossFadeState.showSecond
-                    : CrossFadeState.showFirst,
-                firstChild: SizedBox(
-                  width: size,
-                  child: Image(
-                    image: AssetImage(widget.record.imagePath),
-                    fit: BoxFit.cover,
-                  ),
+        child: Container(
+          width: size,
+          height: size,
+          decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
+            child: AnimatedCrossFade(
+              duration: Durations.short2,
+              crossFadeState: _isHovering
+                  ? CrossFadeState.showSecond
+                  : CrossFadeState.showFirst,
+              firstChild: SizedBox(
+                width: size,
+                child: Image(
+                  image: AssetImage(widget.record.imagePath),
+                  fit: BoxFit.cover,
                 ),
-                secondChild: SizedBox(
-                  width: size,
-                  height: size,
-                  child: widget.hover,
-                ),
+              ),
+              secondChild: SizedBox(
+                width: size,
+                height: size,
+                child: widget.hover,
               ),
             ),
           ),

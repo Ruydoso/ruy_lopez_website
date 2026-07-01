@@ -40,11 +40,16 @@ class _FooterDesktopState extends State<FooterDesktop> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    RobotoCondensedText(
-                      text: 'FOLLOW',
-                      fontSize: screenWidth < tabletBreakPoint ? 70 : 96,
-                      fontWeight: FontWeight.w600,
+                    Text(
+                      'FOLLOW',
+                      style: TextStyle(
+                        fontSize: screenWidth < tabletBreakPoint ? 70 : 96,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'bebasneue',
+                        color: Color(0xFFFFF7F9),
+                      ),
                     ),
+                    const SizedBox(height: 24),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       spacing: MediaQuery.of(context).size.width * 0.07,
@@ -76,10 +81,14 @@ class _FooterDesktopState extends State<FooterDesktop> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      RobotoCondensedText(
-                        text: 'CONTACT',
-                        fontSize: screenWidth < tabletBreakPoint ? 70 : 96,
-                        fontWeight: FontWeight.w600,
+                      Text(
+                        'CONTACT',
+                        style: TextStyle(
+                          fontSize: screenWidth < tabletBreakPoint ? 70 : 96,
+                          fontWeight: FontWeight.w700,
+                          fontFamily: 'bebasneue',
+                          color: Color(0xFFFFF7F9),
+                        ),
                       ),
                       MouseRegion(
                         cursor: SystemMouseCursors.click,

@@ -28,10 +28,14 @@ class FooterMobile extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    RobotoCondensedText(
-                      text: 'FOLLOW',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 45,
+                    Text(
+                      'FOLLOW',
+                      style: TextStyle(
+                        fontSize: 45,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'bebasneue',
+                        color: Color(0xFFFFF7F9),
+                      ),
                     ),
                     const SizedBox(height: 20),
                     Row(
@@ -58,10 +62,14 @@ class FooterMobile extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 60),
-                    RobotoCondensedText(
-                      text: 'CONTACT',
-                      fontWeight: FontWeight.bold,
-                      fontSize: 45,
+                    Text(
+                      'CONTACT',
+                      style: TextStyle(
+                        fontSize: 45,
+                        fontWeight: FontWeight.w700,
+                        fontFamily: 'bebasneue',
+                        color: Color(0xFFFFF7F9),
+                      ),
                     ),
                     const SizedBox(height: 20),
                   ],
@@ -79,7 +87,7 @@ class FooterMobile extends StatelessWidget {
                     padding: const EdgeInsets.only(
                       top: 28,
                       bottom: 28,
-                      left: 30,
+                      left: 38,
                     ),
                     child: Row(
                       children: [

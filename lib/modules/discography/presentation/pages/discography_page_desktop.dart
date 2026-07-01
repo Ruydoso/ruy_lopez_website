@@ -70,12 +70,28 @@ class DiscographyPageDesktop extends StatelessWidget {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                ...records.entries.map(
-                                  (r) => RecordWidget(
-                                    record: r.key,
-                                    hover: r.value,
-                                  ),
-                                ),
+                                ...records.entries
+                                    .take(3)
+                                    .map(
+                                      (r) => RecordWidget(
+                                        record: r.key,
+                                        hover: r.value,
+                                      ),
+                                    ),
+                              ],
+                            ),
+                            const SizedBox(height: 60),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                ...records.entries
+                                    .skip(3)
+                                    .map(
+                                      (r) => RecordWidget(
+                                        record: r.key,
+                                        hover: r.value,
+                                      ),
+                                    ),
                               ],
                             ),
                           ],

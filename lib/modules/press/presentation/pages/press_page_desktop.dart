@@ -29,7 +29,7 @@ class _PressPageDesktopState extends State<PressPageDesktop> {
                           Color(0xFF696967),
                           Color(0xFF1D1D1B),
                         ],
-                        stops: [0.0, 0.43, 1.0],
+                        stops: [0.0, 0.13, 1.0],
                         begin: AlignmentGeometry.topCenter,
                         end: AlignmentGeometry.bottomCenter,
                       ),
@@ -39,6 +39,7 @@ class _PressPageDesktopState extends State<PressPageDesktop> {
                         Positioned(
                           left: 0,
                           bottom: 0,
+                          top: 0,
                           child: Opacity(
                             opacity: 0.2,
                             child: Image(
@@ -53,6 +54,7 @@ class _PressPageDesktopState extends State<PressPageDesktop> {
                         Positioned(
                           right: 0,
                           bottom: 0,
+                          top: 0,
                           child: Opacity(
                             opacity: 0.2,
                             child: Image(

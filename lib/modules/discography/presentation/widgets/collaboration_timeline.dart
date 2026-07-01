@@ -326,6 +326,7 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
                       text: 'COLLABORATIONS',
                       fontSize: mobile ? 32 : 45,
                       color: Color(0xFF330833),
+                      fontWeight: FontWeight.w400,
                     ),
                   ),
                   const SizedBox(height: 20),

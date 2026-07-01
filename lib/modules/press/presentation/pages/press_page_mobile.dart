@@ -29,13 +29,28 @@ class _PressPageMobileState extends State<PressPageMobile> {
                           Color(0xFF696967),
                           Color(0xFF1D1D1B),
                         ],
-                        stops: [0.0, 0.43, 1.0],
+                        stops: [0.0, 0.13, 1.0],
                         begin: AlignmentGeometry.topCenter,
                         end: AlignmentGeometry.bottomCenter,
                       ),
                     ),
                     child: Stack(
                       children: [
+                        Positioned(
+                          top: 0,
+                          right: 0,
+                          left: 0,
+                          child: Opacity(
+                            opacity: 0.9,
+                            child: Image(
+                              image: AssetImage(
+                                'assets/effects/top_grainy_effect_r.webp',
+                              ),
+                              color: Colors.white,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
                         Padding(
                           padding: const EdgeInsets.symmetric(
                             horizontal: 40,

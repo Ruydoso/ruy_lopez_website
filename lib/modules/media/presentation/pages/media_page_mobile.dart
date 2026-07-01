@@ -108,6 +108,7 @@ class _MediaPageMobileState extends State<MediaPageMobile> {
                                   fontSize: 32,
                                   height: 1.32,
                                   textAlign: TextAlign.center,
+                                  fontWeight: FontWeight.w400,
                                 ),
                               ),
                               Padding(

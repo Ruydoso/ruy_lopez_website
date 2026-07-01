@@ -94,11 +94,12 @@ class _MediaPageDesktopState extends State<MediaPageDesktop> {
                       child: Column(
                         children: [
                           Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 40),
+                            padding: const EdgeInsets.only(top: 80, bottom: 72),
                             child: RobotoText(
                               text: 'AUDIOVISUAL\'S MUSIC',
                               color: CustomColors.darkPurpleAppColor,
                               fontSize: 45,
+                              fontWeight: FontWeight.w400,
                             ),
                           ),
                           MediaQuery.of(context).size.width < tabletBreakPoint
@@ -109,7 +110,6 @@ class _MediaPageDesktopState extends State<MediaPageDesktop> {
                                       child: Padding(
                                         padding: const EdgeInsets.symmetric(
                                           horizontal: 50,
-                                          vertical: 40,
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
@@ -163,7 +163,6 @@ class _MediaPageDesktopState extends State<MediaPageDesktop> {
                                       child: Padding(
                                         padding: const EdgeInsets.symmetric(
                                           horizontal: 50,
-                                          vertical: 40,
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
@@ -188,7 +187,6 @@ class _MediaPageDesktopState extends State<MediaPageDesktop> {
                                       child: Padding(
                                         padding: const EdgeInsets.symmetric(
                                           horizontal: 50,
-                                          vertical: 40,
                                         ),
                                         child: Row(
                                           mainAxisAlignment:
@@ -246,7 +244,7 @@ class _MediaPageDesktopState extends State<MediaPageDesktop> {
                                   ],
                                 ),
 
-                          const SizedBox(height: 50),
+                          const SizedBox(height: 80),
                         ],
                       ),
                     ),

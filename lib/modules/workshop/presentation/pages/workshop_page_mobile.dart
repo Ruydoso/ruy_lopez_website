@@ -145,15 +145,25 @@ class _WorkshopPageMobileState extends State<WorkshopPageMobile> {
                                 children: [
                                   Padding(
                                     padding: const EdgeInsets.only(
-                                      top: 80,
+                                      top: 56,
                                       bottom: 40,
                                     ),
                                     child: RobotoText(
-                                      text: 'PAST WORKSHOPS',
+                                      text: 'REFERENCES',
                                       fontSize: 32,
                                       color: Color(0xFF330833),
+                                      fontWeight: FontWeight.w400,
                                     ),
                                   ),
+                                  ...videos.map(
+                                    (v) => Padding(
+                                      padding: EdgeInsetsGeometry.only(
+                                        bottom: 40,
+                                      ),
+                                      child: VideoLinkWidget(video: v),
+                                    ),
+                                  ),
+                                  SizedBox(height: 10),
                                   SizedBox(
                                     width:
                                         MediaQuery.of(context).size.width *
@@ -205,7 +215,7 @@ class _WorkshopPageMobileState extends State<WorkshopPageMobile> {
                                                 'Each summer, the Stanford Jazz Festival presents weeks of world-class performances. The same artists who teach in the program take the stage at night, creating a one-of-a-kind environment where audiences and students experience jazz at its highest level. Ruy Adrián participated in the year 2018',
                                             fontWeight: FontWeight.w400,
                                             fontSize: 16,
-                                            height: 1.16,
+                                            height: 1.26,
                                           ),
                                           const SizedBox(height: 20),
                                           Align(
@@ -244,6 +254,7 @@ class _WorkshopPageMobileState extends State<WorkshopPageMobile> {
                                     text: 'CUBAN WORKSHOP',
                                     color: CustomColors.darkPurpleAppColor,
                                     fontSize: 32,
+                                    fontWeight: FontWeight.w400,
                                   ),
                                 ),
                                 SizedBox(

@@ -12,6 +12,15 @@ part 'discography_page_mobile.dart';
 
 final Map<Records, Widget> records = {
   Records(
+    imagePath: 'assets/images/records/record4.webp',
+    link:
+        'https://open.spotify.com/album/7ddtFctVgnlij3HPcGbVPe?si=jyycrR37QSa0Odbner_jUg',
+  ): HoverRecordWidget(
+    buttonText: 'See More',
+    recordTitle: 'Hermeto Universal'.toUpperCase(),
+    recordYear: '2026',
+  ),
+  Records(
     imagePath: 'assets/images/records/record1.jpg',
     link:
         'https://music.apple.com/us/album/de-ruydoso-a-san-francisco-single/1889920301?l=en-GB',

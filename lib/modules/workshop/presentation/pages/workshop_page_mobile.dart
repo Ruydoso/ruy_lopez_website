@@ -175,65 +175,55 @@ class _WorkshopPageMobileState extends State<WorkshopPageMobile> {
                                       fit: BoxFit.cover,
                                     ),
                                   ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      top: 30,
-                                      bottom: 80,
-                                    ),
-                                    child: SizedBox(
-                                      width: 300,
-                                      child: RobotoText(
-                                        text:
-                                            'Last workshop of Ruy Adrián and Harold López Nussa for the people interested in the cuban music.',
-                                        fontWeight: FontWeight.w400,
-                                        fontSize: 16,
-                                        height: 1.16,
-                                      ),
-                                    ),
-                                  ),
+                                  SizedBox(height: 80),
                                   SizedBox(
                                     width:
                                         MediaQuery.of(context).size.width * 0.9,
-                                    child: Image(
-                                      image: AssetImage(
-                                        'assets/images/workshop_image2.webp',
-                                      ),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: const EdgeInsets.only(
-                                      top: 30,
-                                      bottom: 90,
-                                    ),
-                                    child: SizedBox(
-                                      width: 320,
-                                      child: Column(
-                                        children: [
-                                          RobotoText(
-                                            text:
-                                                'Each summer, the Stanford Jazz Festival presents weeks of world-class performances. The same artists who teach in the program take the stage at night, creating a one-of-a-kind environment where audiences and students experience jazz at its highest level. Ruy Adrián participated in the year 2018',
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 16,
-                                            height: 1.26,
+                                    child: Column(
+                                      children: [
+                                        Image(
+                                          image: AssetImage(
+                                            'assets/images/workshop_image2.webp',
                                           ),
-                                          const SizedBox(height: 20),
-                                          Align(
-                                            alignment:
-                                                AlignmentGeometry.centerRight,
-                                            child: TextLinkWidget(
-                                              onTap: () {
-                                                launchUrl(
-                                                  Uri.parse(
-                                                    'https://stanfordjazz.org/stanford-jazz-festival/',
-                                                  ),
-                                                );
-                                              },
-                                              text: 'See more about it',
-                                            ),
+                                          fit: BoxFit.cover,
+                                        ),
+                                        Padding(
+                                          padding: const EdgeInsets.only(
+                                            top: 30,
+                                            bottom: 90,
                                           ),
-                                        ],
-                                      ),
+                                          child: Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              SizedBox(
+                                                width:
+                                                    MediaQuery.of(
+                                                      context,
+                                                    ).size.width *
+                                                    0.5,
+                                                child: RobotoText(
+                                                  text:
+                                                      'Standford Jazz Festival & Workshops/ 2023',
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 16,
+                                                  height: 1.26,
+                                                ),
+                                              ),
+                                              TextLinkWidget(
+                                                onTap: () {
+                                                  launchUrl(
+                                                    Uri.parse(
+                                                      'https://stanfordjazz.org/stanford-jazz-festival/',
+                                                    ),
+                                                  );
+                                                },
+                                                text: 'See more about it',
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ],
                                     ),
                                   ),
                                 ],
@@ -251,7 +241,7 @@ class _WorkshopPageMobileState extends State<WorkshopPageMobile> {
                                     bottom: 40,
                                   ),
                                   child: RobotoText(
-                                    text: 'CUBAN WORKSHOP',
+                                    text: 'WORKSHOPS AVAILABLE',
                                     color: CustomColors.darkPurpleAppColor,
                                     fontSize: 32,
                                     fontWeight: FontWeight.w400,

@@ -61,7 +61,7 @@ class _MediaPageDesktopState extends State<MediaPageDesktop> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             StaatlichesText(
-                              text: 'COMPOSER FOR\nFILMS AND MEDIA',
+                              text: 'COMPOSITION FOR\nFILMS AND MEDIA',
                               fontSize: 66,
                               textAlign: TextAlign.start,
                               letterSpacing: 0,

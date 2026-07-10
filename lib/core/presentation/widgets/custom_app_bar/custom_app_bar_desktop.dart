@@ -16,7 +16,7 @@ class CustomAppBarDesktop extends StatelessWidget {
         decoration: BoxDecoration(color: Colors.white),
         child: Padding(
           padding: EdgeInsets.symmetric(
-            horizontal: width < tabletBreakPoint ? 5 : 35,
+            horizontal: width < tabletBreakPoint ? 5 : 30,
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -50,7 +50,7 @@ class CustomAppBarDesktop extends StatelessWidget {
                       active: selectedRoute == '/discography',
                     ),
                     _AppBarNavigationElement(
-                      text: 'MEDIA',
+                      text: 'FILM SCORING',
                       onTap: () {
                         Navigator.pushReplacementNamed(context, '/media');
                       },
@@ -115,7 +115,7 @@ class _AppBarNavigationElement extends StatelessWidget {
             child: RobotoText(
               text: text,
               color: Color(0xFF4E444B),
-              fontSize: 16,
+              fontSize: 14,
             ),
           ),
         ),

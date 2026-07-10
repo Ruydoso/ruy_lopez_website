@@ -50,7 +50,7 @@ class CustomDrawer extends StatelessWidget {
                   active: selectedRoute == '/discography',
                 ),
                 _DrawerNavigationElement(
-                  text: 'Media',
+                  text: 'Film Scoring',
                   onTap: () {
                     Navigator.pushReplacementNamed(context, '/media');
                   },

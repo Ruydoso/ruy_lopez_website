@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ruy_lopez_website/core/presentation/presentation.dart';
 import 'package:ruy_lopez_website/core/utils/breakpoints.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -15,6 +16,7 @@ class RecordWidget extends StatefulWidget {
 
 class _RecordWidgetState extends State<RecordWidget> {
   bool _isHovering = false;
+  bool _isPressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -29,48 +31,87 @@ class _RecordWidgetState extends State<RecordWidget> {
       }),
       cursor: SystemMouseCursors.click,
       child: GestureDetector(
-        onTap: () {
-          if (width < mobileBreakPoint) {
-            if (_isHovering == true) {
-              launchUrl(Uri.parse(widget.record.link));
-            } else {
-              setState(() {
-                _isHovering = true;
-              });
-              Future.delayed(
-                Duration(seconds: 5),
-                () => setState(() {
-                  _isHovering = false;
-                }),
-              );
-            }
-          } else {
-            launchUrl(Uri.parse(widget.record.link));
-          }
+        onTap: () async {
+          setState(() {
+            _isHovering = false;
+            _isPressed = true;
+          });
+          await Future.delayed(Durations.medium2);
+          launchUrl(Uri.parse(widget.record.link));
+          setState(() {
+            _isPressed = false;
+          });
         },
-        child: Container(
+        child: AnimatedContainer(
+          padding: _isHovering ? EdgeInsets.only(bottom: 4) : EdgeInsets.zero,
+          duration: Durations.medium2,
           width: size,
           height: size,
-          decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: _isHovering
+                ? [
+                    BoxShadow(
+                      color: Color(0xFFFF74FB),
+                      spreadRadius: 4,
+                      blurRadius: 10,
+                    ),
+                  ]
+                : [],
+          ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(16),
-            child: AnimatedCrossFade(
-              duration: Durations.short2,
-              crossFadeState: _isHovering
-                  ? CrossFadeState.showSecond
-                  : CrossFadeState.showFirst,
-              firstChild: SizedBox(
-                width: size,
-                child: Image(
-                  image: AssetImage(widget.record.imagePath),
-                  fit: BoxFit.cover,
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                DecoratedBox(
+                  position: DecorationPosition.foreground,
+                  decoration: BoxDecoration(
+                    gradient: _isHovering
+                        ? LinearGradient(
+                            colors: [
+                              Colors.transparent,
+                              Colors.black.withValues(alpha: 0.15),
+                              Colors.black.withValues(alpha: 0.8),
+                            ],
+                            stops: [0.0, 0.5, 0.9],
+                            begin: AlignmentGeometry.topCenter,
+                            end: AlignmentGeometry.bottomCenter,
+                          )
+                        : _isPressed
+                        ? LinearGradient(
+                            colors: [
+                              Colors.transparent,
+                              Colors.black.withValues(alpha: 0.15),
+                              Colors.black.withValues(alpha: 0.27),
+                              Colors.black.withValues(alpha: 0.8),
+                            ],
+                            stops: [0.0, 0.11, 0.19, 0.9],
+                            begin: AlignmentGeometry.topCenter,
+                            end: AlignmentGeometry.bottomCenter,
+                          )
+                        : null,
+                  ),
+                  child: SizedBox(
+                    width: size,
+                    child: Image(
+                      image: AssetImage(widget.record.imagePath),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
                 ),
-              ),
-              secondChild: SizedBox(
-                width: size,
-                height: size,
-                child: widget.hover,
-              ),
+                if ((_isHovering || _isPressed) && width > mobileBreakPoint)
+                  Positioned(
+                    bottom: 32,
+                    right: 36,
+                    child: RobotoText(
+                      text: 'See More',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 22,
+                      color: _isPressed ? Color(0xFF7F4D7B) : Color(0xFFF0B3E7),
+                    ),
+                  ),
+              ],
             ),
           ),
         ),

@@ -145,7 +145,7 @@ class _HomePageDesktopState extends State<HomePageDesktop> {
                                           ),
                                           TextSpan(
                                             text:
-                                                "IV SGAE 'Tete Montoliu' Jazz Composition Competition\n\n",
+                                                "IV SGAE 'Tete Montoliu' Jazz Composition Competition.\n\n",
                                             style: baseTextStyle.copyWith(
                                               fontStyle: FontStyle.italic,
                                               fontWeight: FontWeight.w300,

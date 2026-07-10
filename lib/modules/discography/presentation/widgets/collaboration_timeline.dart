@@ -396,7 +396,7 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
         Opacity(
           opacity: opacity,
           child: Padding(
-            padding: const EdgeInsets.only(top: 40, left: 16),
+            padding: const EdgeInsets.only(top: 40, left: 23),
             child: AnimatedSize(
               duration: const Duration(milliseconds: 400),
               curve: Curves.easeInOutCubic,
@@ -406,7 +406,6 @@ class _CollaborationTimelineState extends State<CollaborationTimeline> {
                       scrollDirection: Axis.horizontal,
                       child: Row(
                         children: [
-                          const SizedBox(width: 3),
                           if (!mobile) const SizedBox(width: 150),
                           ...albums!.map(
                             (a) => Padding(

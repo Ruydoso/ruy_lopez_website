@@ -135,7 +135,7 @@ class _HomePageMobileState extends State<HomePageMobile> {
                                           ),
                                           TextSpan(
                                             text:
-                                                "IV SGAE 'Tete Montoliu' Jazz Composition Competition\n\n",
+                                                "IV SGAE 'Tete Montoliu' Jazz Composition Competition.\n\n",
                                             style: baseTextStyle.copyWith(
                                               fontStyle: FontStyle.italic,
                                               fontWeight: FontWeight.w300,

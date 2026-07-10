@@ -13,7 +13,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
   final List<(String, String, String)> desktopElements = [
     (
       'assets/images/carousel_image1_desktop.webp',
-      'DISCOS BY RUY',
+      'MUSIC ALBUMS',
       '/discography',
     ),
     (
@@ -30,7 +30,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
   final List<(String, String, String)> mobileElements = [
     (
       'assets/images/carousel_image1_mobile.webp',
-      'DISCOS BY RUY',
+      'MUSIC ALBUMS',
       '/discography',
     ),
     (
@@ -97,18 +97,17 @@ class _HomeCarouselState extends State<HomeCarousel> {
                     boxShadow: [
                       BoxShadow(
                         color: Colors.white,
-                        blurRadius: 30,
-                        spreadRadius: 20,
+                        blurRadius: 20,
+                        spreadRadius: 10,
                       ),
                     ],
                   ),
-
                   child: Padding(
-                    padding: const EdgeInsets.all(12.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 28),
                     child: RobotoText(
                       text: e.$2,
-                      fontSize: width < mobileBreakPoint ? 16 : 36,
-                      color: Color(0xFA544151),
+                      fontSize: width < mobileBreakPoint ? 20 : 36,
+                      color: Color(0xFF544151),
                     ),
                   ),
                 ),
@@ -181,7 +180,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
           ],
         ),
         Padding(
-          padding: const EdgeInsets.only(bottom: 25, top: 20),
+          padding: const EdgeInsets.only(bottom: 25, top: 25),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: desktopElements.asMap().entries.map((entry) {

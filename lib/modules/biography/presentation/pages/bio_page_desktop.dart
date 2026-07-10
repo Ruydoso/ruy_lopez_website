@@ -32,7 +32,7 @@ class BioPageDesktop extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.only(left: 120),
                             child: SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.45,
+                              width: MediaQuery.of(context).size.width * 0.47,
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -59,7 +59,7 @@ class BioPageDesktop extends StatelessWidget {
                                   AnimatedTexts(
                                     texts: RobotoText(
                                       text:
-                                          'Ruy Adrián López Nussa is centera highly acclaimed Cuban musician, celebrated internationally for his dynamic and versatile career as both a drummer and composer. Hailing from one of Cuba\'s most distinguished musical families, he inherited a deep and sophisticated musical language that seamlessly blends Cuban rhythms, jazz, and classical influences.',
+                                          'Ruy Adrián López Nussa is a highly acclaimed Cuban musician, celebrated internationally for his dynamic and versatile career as a drummer and also a composer. Hailing from one of Cuba\'s most distinguished musical families, he inherited a deep and sophisticated musical language that seamlessly blends Cuban rhythms, jazz, and classical influences.',
                                       fontWeight: FontWeight.w400,
                                       letterSpacing: 0,
                                       height: 1.32,

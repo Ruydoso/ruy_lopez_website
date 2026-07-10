@@ -215,14 +215,6 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                                                 fit: BoxFit.cover,
                                               ),
                                               const SizedBox(height: 30),
-                                              RobotoText(
-                                                text:
-                                                    'Last workshop of Ruy Adrián and Harold López Nussa for the people interested in the cuban music.',
-                                                fontSize: 16,
-                                                height: 1.40,
-                                                fontWeight: FontWeight.w400,
-                                                textAlign: TextAlign.start,
-                                              ),
                                             ],
                                           ),
                                         ),
@@ -243,28 +235,39 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                                                 fit: BoxFit.cover,
                                               ),
                                               const SizedBox(height: 30),
-                                              RobotoText(
-                                                text:
-                                                    'Each summer, the Stanford Jazz Festival presents weeks of world-class performances. The same artists who teach in the program take the stage at night, creating a one-of-a-kind environment where audiences and students experience jazz at its highest level. Ruy Adrián participated in the year 2018.',
-                                                fontSize: 16,
-                                                height: 1.40,
-                                                fontWeight: FontWeight.w400,
-                                                textAlign: TextAlign.start,
-                                              ),
-                                              const SizedBox(height: 8),
-                                              Align(
-                                                alignment: AlignmentGeometry
-                                                    .centerRight,
-                                                child: TextLinkWidget(
-                                                  onTap: () {
-                                                    launchUrl(
-                                                      Uri.parse(
-                                                        'https://stanfordjazz.org/stanford-jazz-festival/',
-                                                      ),
-                                                    );
-                                                  },
-                                                  text: 'See more about it',
-                                                ),
+                                              Row(
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                children: [
+                                                  SizedBox(
+                                                    width:
+                                                        MediaQuery.of(
+                                                          context,
+                                                        ).size.width *
+                                                        0.25,
+                                                    child: RobotoText(
+                                                      text:
+                                                          'Standford Jazz Festival & Workshops/ 2023',
+                                                      fontSize: 16,
+                                                      height: 1.40,
+                                                      fontWeight:
+                                                          FontWeight.w400,
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                    ),
+                                                  ),
+                                                  TextLinkWidget(
+                                                    onTap: () {
+                                                      launchUrl(
+                                                        Uri.parse(
+                                                          'https://stanfordjazz.org/stanford-jazz-festival/',
+                                                        ),
+                                                      );
+                                                    },
+                                                    text: 'See more about it',
+                                                  ),
+                                                ],
                                               ),
                                             ],
                                           ),
@@ -332,7 +335,7 @@ class _WorkshopPageDesktopState extends State<WorkshopPageDesktop> {
                                         vertical: 70,
                                       ),
                                       child: RobotoText(
-                                        text: 'CUBAN WORKSHOP AVAILABLES',
+                                        text: 'WORKSHOPS AVAILABLES',
                                         color: CustomColors.darkPurpleAppColor,
                                         fontSize: 45,
                                         fontWeight: FontWeight.w400,

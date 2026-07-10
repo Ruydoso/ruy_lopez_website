@@ -58,7 +58,7 @@ class BioPageMobile extends StatelessWidget {
                                 child: AnimatedTexts(
                                   texts: RobotoText(
                                     text:
-                                        'Ruy Adrián López Nussa is a highly acclaimed Cuban musician, celebrated internationally for his dynamic and versatile career as both a drummer and composer. Hailing from one of Cuba\'s most distinguished musical families, he inherited a deep and sophisticated musical language that seamlessly blends Cuban rhythms, jazz, and classical influences.',
+                                        'Ruy Adrián López Nussa is a highly acclaimed Cuban musician, celebrated internationally for his dynamic and versatile career as a drummer and also a composer. Hailing from one of Cuba\'s most distinguished musical families, he inherited a deep and sophisticated musical language that seamlessly blends Cuban rhythms, jazz, and classical influences.',
                                     fontSize: 16,
                                     height: 1.72,
                                     letterSpacing: 0.5,

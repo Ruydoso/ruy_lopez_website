@@ -64,7 +64,7 @@ class _MediaPageMobileState extends State<MediaPageMobile> {
                                   left: MediaQuery.of(context).size.width * 0.1,
                                 ),
                                 child: StaatlichesText(
-                                  text: 'COMPOSER FOR\nFILMS AND MEDIA ',
+                                  text: 'COMPOSITION FOR\nFILMS AND MEDIA ',
                                   textAlign: TextAlign.left,
                                   fontSize: 57,
                                 ),

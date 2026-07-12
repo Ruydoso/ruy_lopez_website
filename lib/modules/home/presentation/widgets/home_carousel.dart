@@ -11,11 +11,7 @@ class HomeCarousel extends StatefulWidget {
 
 class _HomeCarouselState extends State<HomeCarousel> {
   final List<(String, String, String)> desktopElements = [
-    (
-      'assets/images/carousel_image1_desktop.webp',
-      'MUSIC ALBUMS',
-      '/discography',
-    ),
+    ('assets/images/carousel_image1_desktop.webp', 'ALBUMS', '/discography'),
     (
       'assets/images/carousel_image2_desktop.webp',
       'FILM\'S COMPOSITION',
@@ -28,11 +24,7 @@ class _HomeCarouselState extends State<HomeCarousel> {
     ),
   ];
   final List<(String, String, String)> mobileElements = [
-    (
-      'assets/images/carousel_image1_mobile.webp',
-      'MUSIC ALBUMS',
-      '/discography',
-    ),
+    ('assets/images/carousel_image1_mobile.webp', 'ALBUMS', '/discography'),
     (
       'assets/images/carousel_image2_mobile.webp',
       'FILM\'S COMPOSITION',

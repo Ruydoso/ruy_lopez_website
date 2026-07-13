@@ -79,10 +79,9 @@ class _HomeCarouselState extends State<HomeCarousel> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 40,
-                  vertical: 50,
-                ),
+                padding: width < mobileBreakPoint
+                    ? EdgeInsets.zero
+                    : const EdgeInsets.symmetric(horizontal: 40, vertical: 50),
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+
 import 'package:ruy_lopez_website/modules/biography/biography.dart';
 import 'package:ruy_lopez_website/modules/discography/presentation/pages/discography_page.dart';
 import 'package:ruy_lopez_website/modules/home/home.dart';
@@ -7,6 +9,7 @@ import 'package:ruy_lopez_website/modules/press/presentation/pages/press_page.da
 import 'package:ruy_lopez_website/modules/workshop/workshop.dart';
 
 void main() {
+  usePathUrlStrategy();
   runApp(const RuyLopezWebsite());
 }
 

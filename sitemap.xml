@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  
+  <!-- Home Page -->
+  <url>
+    <loc>https://www.ruyadrianlopeznussa.com/</loc>
+    <lastmod>2024-07-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- Biography Page -->
+  <url>
+    <loc>https://www.ruyadrianlopeznussa.com/bio</loc>
+    <lastmod>2024-07-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Discography Page -->
+  <url>
+    <loc>https://www.ruyadrianlopeznussa.com/discography</loc>
+    <lastmod>2024-07-17T00:00:00+00:00</lastmod>
+    <changefreq>bi-weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Press / News Page -->
+  <url>
+    <loc>https://www.ruyadrianlopeznussa.com/press</loc>
+    <lastmod>2024-07-17T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Workshop Page -->
+  <url>
+    <loc>https://www.ruyadrianlopeznussa.com/workshop</loc>
+    <lastmod>2024-07-17T00:00:00+00:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+</urlset>

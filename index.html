@@ -21,7 +21,6 @@
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-  <!-- SEO Meta Tags -->
   <title>Ruy Adrián López-Nussa</title>
   <meta name="description"
     content="Ruy Adrián López-Nussa es un reconocido músico, compositor y percusionista cubano. Explora su biografía, discografía, colaboraciones y últimas noticias.">
@@ -35,10 +34,8 @@
   <meta name="revisit-after" content="7 days">
   <meta name="copyright" content="© 2024 Ruy Adrián López-Nussa. All rights reserved.">
 
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://www.ruyadrianlopeznussa.com/">
 
-  <!-- Open Graph Meta Tags (Social Media) -->
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Ruy Adrián López-Nussa">
   <meta property="og:description"
@@ -48,7 +45,6 @@
   <meta property="og:site_name" content="Ruy Adrián López-Nussa">
   <meta property="og:locale" content="es_ES">
 
-  <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Ruy Adrián López-Nussa | Músico y Compositor Cubano">
   <meta name="twitter:description"
@@ -56,7 +52,6 @@
   <meta name="twitter:image" content="/images/og-image.webp">
   <meta name="twitter:site" content="@ruyadrianlopeznussa">
 
-  <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -64,14 +59,22 @@
   <meta name="theme-color" content="#d946ef">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png">
   <link rel="shortcut icon" href="favicon.png" type="image/png">
 
-  <!-- Manifest for PWA -->
+  <script>
+    (function () {
+      const redirectPath = sessionStorage.getItem('redirectPath');
+      if (redirectPath && redirectPath !== '/' && redirectPath !== window.location.pathname)
+      {
+        sessionStorage.removeItem('redirectPath');
+        window.history.replaceState({}, document.title, redirectPath);
+      }
+    })();
+  </script>
+
   <link rel="manifest" href="manifest.json">
 
-  <!-- JSON-LD Structured Data (Schema.org) -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
